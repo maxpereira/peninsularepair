@@ -99,6 +99,5 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 
 - **Email address:** the page shows only `events [at] peninsula [dot] repair` (submission box and footer), and it isn't confirmed to exist. To keep it away from spam scrapers it is drawn as SVG paths (the `#addr` symbol near the footer, Overpass Mono glyphs) with no `mailto:` link and no plain text. Never add the address to the page as text or a link; if it changes, regenerate the paths.
 - **Newsletter form:** doesn't save anything yet. It only swaps in a thank-you message and needs to be connected to the owner's mailing list provider.
-- **The RCP box** quotes RCP's stats (56 of 79 items fixed after the first two events). Update the numbers from repaircafepeninsula.org as they change.
 - **"Today" tag:** this is date-based only, so an event earlier today still shows "Today" after it has ended.
 - **Not set up:** analytics, a social share image, and a PNG apple-touch-icon (iOS doesn't use SVG icons for home-screen shortcuts).
