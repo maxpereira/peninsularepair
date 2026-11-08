@@ -11,6 +11,7 @@ The site should feel like a local, hand-made community map. It should not look l
 
 - `favicon.svg`: the two-bar mark, a short blue Coast & Hills bar beside a longer orange Bayside bar on a paper tile, with dark-mode colors built in. The header logo in index.html uses the same shape (blue bar shorter). Keep the two in sync.
 - `CNAME`: the custom domain for GitHub Pages. Keep it as `peninsula.repair`.
+- `og-image.png`: the 1200×630 social share card (Open Graph and Twitter tags in the `<head>` point to it by absolute URL). It shows the two-bar mark, the wordmark, the headline "Keep the Peninsula running." and a short two-line route on paper, with a mono strip reading "Repair · Make · Grow · Outdoors · Cleanup" and "Daly City → Mountain View". It was rendered from a one-off HTML page with Playwright using the site's fonts and light-mode tokens. If the headline, mark or colors change, re-render it to match.
 
 ## Hosting
 
@@ -100,4 +101,4 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 - **Email address:** the page shows only `events [at] peninsula [dot] repair` (submission box and footer), and it isn't confirmed to exist. To keep it away from spam scrapers it is drawn as SVG paths (the `#addr` symbol near the footer, Overpass Mono glyphs) with no `mailto:` link and no plain text. Never add the address to the page as text or a link; if it changes, regenerate the paths.
 - **Newsletter form:** hidden (wrapped in an HTML comment in the RCP box). It doesn't save anything; it only swaps in a thank-you message and needs to be connected to the owner's mailing list provider before it comes back.
 - **"Today" tag:** this is date-based only, so an event earlier today still shows "Today" after it has ended.
-- **Not set up:** analytics, a social share image, and a PNG apple-touch-icon (iOS doesn't use SVG icons for home-screen shortcuts).
+- **Not set up:** analytics and a PNG apple-touch-icon (iOS doesn't use SVG icons for home-screen shortcuts).
