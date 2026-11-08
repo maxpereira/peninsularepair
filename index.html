@@ -35,7 +35,6 @@
     --rule: #d6cfbf;
     --bay: #d9481f;      /* Bayside line */
     --coast: #1f6f86;    /* Coast & Hills line */
-    --board: #141414;
     --amber: #ffb21a;
     --rw: 34px;          /* rail column width */
     --my: 30px;          /* marker y offset */
@@ -49,12 +48,11 @@
       --rule: #34322e;
       --bay: #f0683f;
       --coast: #4fa6bf;
-      --board: #0b0b0b;
     }
   }
   :root[data-theme="dark"] {
     --paper: #161615; --paper-2: #1e1e1c; --ink: #efe9dc; --muted: #9b968c;
-    --rule: #34322e; --bay: #f0683f; --coast: #4fa6bf; --board: #0b0b0b;
+    --rule: #34322e; --bay: #f0683f; --coast: #4fa6bf;
   }
 
   * { box-sizing: border-box; }
@@ -97,21 +95,37 @@
   .hero p { font-size: 1.15rem; max-width: 46ch; margin: 22px 0 0; color: var(--muted); }
   .hero p strong { color: var(--ink); font-weight: 600; }
 
-  /* Departure board */
-  .board {
-    background: var(--board); color: var(--amber); border-radius: 6px; padding: 18px 18px 14px;
-    box-shadow: 0 0 0 6px var(--ink), 0 18px 40px rgb(0 0 0 / .25);
+  /* Strip map: the whole line at a glance */
+  .strip { border: 2px solid var(--ink); border-radius: 3px; background: var(--paper); padding: 14px 18px 16px; }
+  .strip-head { display: flex; justify-content: space-between; gap: 12px; font: 600 .7rem "Overpass Mono", monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .strip-map { position: relative; height: 214px; margin: 0 64px 0 10px; --cy: 86px; --by: 128px; }
+  .s-rail { position: absolute; height: 8px; margin-top: -4px; border-radius: 4px; background: var(--c); }
+  .s-rail.coast { --c: var(--coast); top: var(--cy); }
+  .s-rail.bay { --c: var(--bay); top: var(--by); }
+  .s-xchg { position: absolute; z-index: 2; width: 20px; margin-left: -10px; top: calc(var(--cy) - 10px); height: calc(var(--by) - var(--cy) + 20px); border-radius: 10px; background: var(--paper); border: 4px solid var(--ink); }
+  .s-buffer { position: absolute; z-index: 2; width: 6px; margin-left: -3px; height: 24px; top: calc(var(--by) - 12px); background: var(--ink); border-radius: 2px; }
+  .s-stop { position: absolute; z-index: 3; width: 0; height: 0; text-decoration: none; }
+  .s-stop.coast, .s-stop.both { top: var(--cy); }
+  .s-stop.bay { top: var(--by); }
+  .s-stop .d { position: absolute; left: 0; top: 0; transform: translate(-50%, -50%); width: 12px; height: 12px; border-radius: 50%; background: var(--paper); border: 3px solid var(--c); }
+  .s-stop.on .d { width: 18px; height: 18px; border: 4px solid var(--ink); }
+  .s-stop.both .d { display: none; }
+  .s-stop .n { position: absolute; left: 4px; white-space: nowrap; font-size: .8rem; font-weight: 600; line-height: 1; color: var(--muted); }
+  .s-stop.on .n, .s-stop.both .n { color: var(--ink); font-weight: 800; }
+  .s-stop.coast .n, .s-stop.both .n { bottom: 12px; transform-origin: 0 100%; transform: rotate(-45deg); }
+  .s-stop.bay .n { top: 12px; transform-origin: 0 0; transform: rotate(45deg); }
+  .s-stop:hover .n, .s-stop:focus-visible .n { text-decoration: underline; }
+  .s-stop::after { content: ""; position: absolute; left: -11px; top: -11px; width: 22px; height: 22px; } /* larger tap target on the dot */
+  .strip-next { display: block; text-decoration: none; border-top: 2px solid var(--ink); padding-top: 12px; }
+  .strip-next .k { display: block; font: 600 .7rem "Overpass Mono", monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); margin-bottom: 4px; }
+  .strip-next b { display: block; font-weight: 800; font-size: 1.05rem; line-height: 1.25; }
+  .strip-next span { color: var(--muted); font-size: .95rem; }
+  .strip-next:hover b { text-decoration: underline; }
+  @media (max-width: 560px) {
+    .strip { padding: 12px 12px 14px; }
+    .strip-map { margin-right: 58px; height: 200px; --cy: 80px; --by: 118px; }
+    .s-stop .n { font-size: .72rem; }
   }
-  .board-head { display: flex; justify-content: space-between; font-size: .72rem; letter-spacing: .14em; color: #9a8a66; margin-bottom: 10px; }
-  .board table { width: 100%; border-collapse: collapse; font-size: .9rem; }
-  .board th { text-align: left; font-weight: 400; font-size: .68rem; letter-spacing: .14em; color: #8a7a58; padding: 0 8px 6px 0; }
-  .board td { padding: 9px 8px 9px 0; border-top: 1px solid #2a2720; vertical-align: top; text-transform: uppercase; white-space: nowrap; }
-  .board td.what { white-space: normal; color: #ffd36e; }
-  .board tr { cursor: pointer; }
-  .board tr:hover td { color: #fff; }
-  .board .lamp { display: inline-block; width: 8px; height: 8px; border-radius: 50%; margin-right: 8px; vertical-align: 1px; }
-  .board-foot { font-size: .7rem; color: #7d705a; margin-top: 10px; letter-spacing: .06em; }
-  @media (max-width: 480px) { .board td.where-col, .board th.where-col { display: none; } }
 
   /* ---------- Route ---------- */
   .route-head { border-top: 3px solid var(--ink); padding: 28px 0 8px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 20px; align-items: end; }
@@ -165,7 +179,7 @@
   }
   .dep:first-child { border-top: 2px solid var(--ink); }
   .dep.dim { opacity: .22; }
-  .dep.flash { animation: flash 1.4s ease; }
+  .flash { animation: flash 1.4s ease; }
   @keyframes flash { 0%, 40% { background: color-mix(in srgb, var(--amber) 35%, transparent); } 100% { background: transparent; } }
   .when { font-family: "Overpass Mono", monospace; line-height: 1.05; text-transform: uppercase; }
   .when .dow { font-size: .72rem; letter-spacing: .12em; color: var(--muted); }
@@ -227,7 +241,7 @@
   footer { border-top: 1px solid var(--rule); padding: 22px 0 40px; font-size: .85rem; color: var(--muted); }
   footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
 
-  @media (prefers-reduced-motion: reduce) { .dep.flash { animation: none; } html { scroll-behavior: auto; } }
+  @media (prefers-reduced-motion: reduce) { .flash { animation: none; } html { scroll-behavior: auto; } }
 </style>
 </head>
 <body>
@@ -249,14 +263,11 @@
       <h1>Keep the Peninsula running<span>.</span></h1>
       <p><strong>Repair cafés, fixit clinics, garden workshops and beach cleanups</strong> up and down the Peninsula. Ride the line south from Daly City to Mountain View and find the stop nearest you.</p>
     </div>
-    <div class="board mono" aria-label="Next events">
-      <div class="board-head"><span>NEXT DEPARTURES</span><span id="clock"></span></div>
-      <table>
-        <thead><tr><th>When</th><th>What</th><th class="where-col">Stop</th></tr></thead>
-        <tbody id="board"></tbody>
-      </table>
-      <div class="board-foot">FREE UNLESS NOTED · CONFIRM WITH ORGANIZER BEFORE YOU GO</div>
-    </div>
+    <nav class="strip" aria-label="Line map: jump to a stop">
+      <div class="strip-head"><span>The Fix-It Line</span><span>Southbound →</span></div>
+      <div class="strip-map" id="strip"></div>
+      <a class="strip-next" id="next" href="#route"></a>
+    </nav>
   </section>
 
   <section id="route">
@@ -398,48 +409,11 @@ function whenShort(e) {
   return `${DOW[d.getDay()]} ${pad(d.getDate())} ${MON[d.getMonth()]}`;
 }
 
-/* ---------------- Departure board ---------------- */
-const boardEl = document.getElementById("board");
 const reduce = matchMedia("(prefers-reduced-motion: reduce)").matches;
-const GLYPHS = "ABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-
-function flap(el, text, delay) {
-  if (reduce) { el.textContent = text; return; }
-  let frame = 0;
-  const total = 10 + delay;
-  const tick = () => {
-    frame++;
-    el.textContent = [...text].map((ch, i) =>
-      ch === " " || frame > total + i * 0.6 ? ch : GLYPHS[(Math.random() * GLYPHS.length) | 0]
-    ).join("");
-    if (frame <= total + text.length * 0.6) requestAnimationFrame(() => setTimeout(tick, 28));
-  };
-  tick();
+function jumpTo(target, flashEls) {
+  target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: flashEls.length === 1 && target === flashEls[0] ? "center" : "start" });
+  flashEls.forEach(el => { el.classList.remove("flash"); void el.offsetWidth; el.classList.add("flash"); });
 }
-
-upcoming.slice(0, 5).forEach((e, i) => {
-  const tr = document.createElement("tr");
-  const stop = STOPS.find(s => s.id === e.stop);
-  tr.innerHTML = `<td></td><td class="what"><span class="lamp" style="background:${lineColor(lineOf(e.stop))}"></span><span></span></td><td class="where-col"></td>`;
-  tr.onclick = () => {
-    const target = document.getElementById(e.id);
-    target.scrollIntoView({ behavior: reduce ? "auto" : "smooth", block: "center" });
-    target.classList.remove("flash"); void target.offsetWidth; target.classList.add("flash");
-  };
-  boardEl.appendChild(tr);
-  const [w, what, where] = tr.querySelectorAll("td");
-  flap(w, whenShort(e).toUpperCase(), i * 4);
-  flap(what.lastChild, e.title.toUpperCase(), i * 4 + 2);
-  flap(where, stop.name.replace("South San Francisco", "S. San Francisco").toUpperCase(), i * 4 + 4);
-});
-if (!upcoming.length) boardEl.innerHTML = `<tr><td colspan="3">NO DEPARTURES SCHEDULED</td></tr>`;
-
-const clock = document.getElementById("clock");
-const tickClock = () => {
-  const d = new Date();
-  clock.textContent = `${DOW[d.getDay()].toUpperCase()} ${pad(d.getHours())}:${pad(d.getMinutes())}`;
-};
-tickClock(); setInterval(tickClock, 15000);
 
 /* ---------------- Route map ---------------- */
 const routeEl = document.getElementById("route-map");
@@ -474,6 +448,7 @@ function depHTML(e) {
 STOPS.forEach((s, i) => {
   const evs = upcoming.filter(e => e.stop === s.id);
   const row = document.createElement("div");
+  row.id = "stop-" + s.id;
   row.className = "stop" + (evs.length ? "" : " empty");
   const rail = l => {
     const has = onLine(s, l) && s.line !== "both";
@@ -492,6 +467,49 @@ STOPS.forEach((s, i) => {
   row.style.setProperty("--c", lineColor(s.line === "both" ? "bay" : s.line));
   routeEl.appendChild(row);
 });
+
+/* ---------------- Strip map (hero) ---------------- */
+const strip = document.getElementById("strip");
+const N = STOPS.length;
+const pct = i => (i / (N - 1)) * 100;
+const railHTML = (l, extra) => {
+  const [a, b] = SPAN[l];
+  return `<span class="s-rail ${l}" style="left:${pct(a)}%;width:calc(${pct(b) - pct(a)}% + ${extra}px)"></span>`;
+};
+strip.innerHTML = railHTML("coast", 0) + railHTML("bay", 14) +
+  `<span class="s-buffer" style="left:calc(${pct(SPAN.bay[1])}% + 14px)"></span>`;
+STOPS.forEach((s, i) => {
+  const n = upcoming.filter(e => e.stop === s.id).length;
+  const a = document.createElement("a");
+  a.className = `s-stop ${s.line}${n ? " on" : ""}`;
+  a.href = "#stop-" + s.id;
+  a.style.left = pct(i) + "%";
+  a.style.setProperty("--c", lineColor(s.line));
+  a.setAttribute("aria-label", `${s.name}: ${n ? n + (n === 1 ? " upcoming event" : " upcoming events") : "nothing scheduled yet"}`);
+  if (s.line === "both") strip.insertAdjacentHTML("beforeend", `<span class="s-xchg" style="left:${pct(i)}%"></span>`);
+  a.innerHTML = `<span class="d"></span><span class="n">${s.name.replace("South San Francisco", "S. San Francisco")}</span>`;
+  a.onclick = ev => {
+    ev.preventDefault();
+    const row = document.getElementById("stop-" + s.id);
+    const deps = [...row.querySelectorAll(".dep")];
+    jumpTo(row, deps.length ? deps : [row.querySelector(".body")]);
+  };
+  strip.appendChild(a);
+});
+
+const nextEl = document.getElementById("next");
+const nx = upcoming[0];
+if (nx) {
+  const stopName = STOPS.find(s => s.id === nx.stop).name;
+  nextEl.innerHTML = `<span class="k">Next stop · ${whenShort(nx)}</span>
+    <b>${esc(nx.title)}</b>
+    <span>${stopName} · ${esc(nx.time)}</span>`;
+  nextEl.href = "#" + nx.id;
+  nextEl.onclick = ev => { ev.preventDefault(); const t = document.getElementById(nx.id); jumpTo(t, [t]); };
+} else {
+  nextEl.innerHTML = `<span class="k">Next stop</span><b>Nothing scheduled yet.</b><span>Add a stop below.</span>`;
+  nextEl.href = "#add";
+}
 
 /* ---------------- Legend / highlight ---------------- */
 const legend = document.getElementById("legend");

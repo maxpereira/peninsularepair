@@ -23,7 +23,7 @@ The site should feel like a local, hand-made community map. It should not look l
 The page is a **transit-style route map of the Peninsula**. Scrolling the page is riding the line south. The owner is very happy with this concept, so keep it and build on it rather than replacing it.
 
 - **Headline:** "Keep the Peninsula running." (orange period). It was chosen to cover repair, garden, nature and cleanup events, and to echo the transit theme. Don't go back to a repair-only slogan.
-- **Departure board (hero):** an amber-on-black split-flap board showing the next 5 upcoming events. Clicking a row scrolls to and highlights that event on the map. It is generated from the event data, so never edit it by hand.
+- **Strip map (hero):** a small horizontal map of the whole line, like the ones above train doors: north on the left, south on the right, Coast & Hills on top, Bayside below, with the Daly City interchange pill and the Mountain View buffer. Stops with upcoming events get a bold ink ring and name; empty stops are small and muted. Clicking a stop jumps to that town on the map and highlights its events. Under it, a "Next stop" line shows the soonest event and jumps to it. It is all generated from `STOPS` and `EVENTS`, so never edit it by hand. (It replaced an amber split-flap "departure board"; the owner preferred keeping the hero on the Fix-It Line itself.)
 - **Two lines, running north to south:**
   - **Coast & Hills** (blue, left rail): coast and hill towns.
   - **Bayside** (orange, right rail): bayside towns.
@@ -36,12 +36,12 @@ The page is a **transit-style route map of the Peninsula**. Scrolling the page i
 ### Visual rules
 
 - **Fonts:** Overpass (based on US highway signage) and Overpass Mono, nothing else.
-- **Colors:** use the tokens on `:root`. `--bay` is orange, `--coast` is blue, `--amber` is for the board. Dark mode is defined both under `prefers-color-scheme` and under `[data-theme="dark"]`; add any new token to both.
+- **Colors:** use the tokens on `:root`. `--bay` is orange, `--coast` is blue, `--amber` is the highlight flash when you jump to an event. Dark mode is defined both under `prefers-color-scheme` and under `[data-theme="dark"]`; add any new token to both.
 - **Background:** a faint map-grid on paper.
 - **Shapes:** heavy ink rules (3px) between sections, small 3px corner radius.
 - **Avoid:** emoji, gradients, drop-shadow card grids, pill-shaped soft buttons, stock illustrations. Those made earlier drafts look AI-generated.
 - **Tone:** plain, warm, local. Keep transit wordplay light: "stop", "line", "departures", "end of the line".
-- **Layout:** must work at 375px wide (rails shrink there) and in dark mode. Respect `prefers-reduced-motion` (the board skips its flip animation).
+- **Layout:** must work at 375px wide (rails shrink there) and in dark mode. Respect `prefers-reduced-motion` (jumps don't smooth-scroll and the highlight flash is skipped).
 
 ## Data model (in the `<script>` at the bottom of index.html)
 
