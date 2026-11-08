@@ -85,6 +85,8 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 
 ### Where to look for events
 
+**Always check every source below on every refresh, and then look for more.** Never stop after the first few, and never skip one because it is slow or blocks automated fetches. If a source fails (403, bot check, empty page), try another route: its individual event pages, a web search for its dates, or the browser. If it is still unreachable, say so in the summary to the owner rather than silently leaving it out. After the listed sources, run extra searches for new organizers and events in scope (repair cafés, fixit clinics, mending, bike repair, maker workshops, compost and garden talks, nature walks, creek and beach cleanups, city and library calendars, Midpen preserves in San Mateo County) and add good new sources to this list.
+
 - **Repair Café of the Peninsula:** https://repaircafepeninsula.org/ (read the live homepage; the next event is shown at the top). Monthly, San Carlos, Callis & Elaine Community Center, 1336A Arroyo Ave.
 - **San Mateo County Fixit Clinics:** https://www.smcsustainability.org/events/categories/fixit-clinics/ and the full calendar at https://www.smcsustainability.org/events/
 - **Repair Café Silicon Valley:** https://repaircafesv.org/2026/ (only list its Palo Alto and Mountain View dates). Change the year in the URL each year.
