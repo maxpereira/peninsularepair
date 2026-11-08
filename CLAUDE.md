@@ -9,6 +9,7 @@ The site should feel like a local, hand-made community map. It should not look l
 - `index.html`: the whole site. Inline CSS and JS, Google Fonts only, no build step and no dependencies. Keep it as one static file unless the owner asks otherwise.
 - `CLAUDE.md`: this file.
 
+- `favicon.svg`: the two-bar mark, a short blue Coast & Hills bar beside a longer orange Bayside bar on a paper tile, with dark-mode colors built in. The header logo in index.html uses the same shape (blue bar shorter). Keep the two in sync.
 - `CNAME`: the custom domain for GitHub Pages. Keep it as `peninsula.repair`.
 
 ## Hosting
@@ -100,4 +101,4 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 - **Newsletter form:** doesn't save anything yet. It only swaps in a thank-you message and needs to be connected to the owner's mailing list provider.
 - **The RCP box** quotes RCP's stats (56 of 79 items fixed after the first two events). Update the numbers from repaircafepeninsula.org as they change.
 - **"Today" tag:** this is date-based only, so an event earlier today still shows "Today" after it has ended.
-- **Not set up:** analytics, and a favicon/social share image.
+- **Not set up:** analytics, a social share image, and a PNG apple-touch-icon (iOS doesn't use SVG icons for home-screen shortcuts).

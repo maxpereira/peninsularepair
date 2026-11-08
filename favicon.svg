@@ -1,0 +1,17 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <!-- peninsula.repair mark: the Coast & Hills line (blue) and the Bayside line (orange).
+       The coast line is shorter because it ends at Portola Valley; Bayside runs on to Mountain View. -->
+  <style>
+    .tile { fill: #f3efe6; }
+    .coast { fill: #1f6f86; }
+    .bay { fill: #d9481f; }
+    @media (prefers-color-scheme: dark) {
+      .tile { fill: #161615; }
+      .coast { fill: #4fa6bf; }
+      .bay { fill: #f0683f; }
+    }
+  </style>
+  <rect class="tile" width="64" height="64" rx="14"/>
+  <rect class="coast" x="12" y="8" width="18" height="38" rx="9"/>
+  <rect class="bay" x="34" y="8" width="18" height="48" rx="9"/>
+</svg>
