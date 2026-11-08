@@ -9,7 +9,12 @@ The site should feel like a local, hand-made community map. It should not look l
 - `index.html`: the whole site. Inline CSS and JS, Google Fonts only, no build step and no dependencies. Keep it as one static file unless the owner asks otherwise.
 - `CLAUDE.md`: this file.
 
-Hosting and deployment are not set up yet. Don't assume a host.
+- `CNAME`: the custom domain for GitHub Pages. Keep it as `peninsula.repair`.
+
+## Hosting
+
+- **GitHub Pages** from the public repo https://github.com/maxpereira/peninsularepair, branch `main`, root folder. Live at https://peninsula.repair (HTTPS enforced). DNS: apex A records point to GitHub's 185.199.108–111.153, and `www` is a CNAME.
+- **Deploying = pushing to `main`.** The site rebuilds in about a minute. Only commit and push when the owner asks, and check the page in the preview first.
 
 ## Concept: "The Fix-It Line"
 
@@ -95,4 +100,4 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 - **Newsletter form:** doesn't save anything yet. It only swaps in a thank-you message and needs to be connected to the owner's mailing list provider.
 - **The RCP box** quotes RCP's stats (56 of 79 items fixed after the first two events). Update the numbers from repaircafepeninsula.org as they change.
 - **"Today" tag:** this is date-based only, so an event earlier today still shows "Today" after it has ended.
-- **Not set up:** deployment, analytics, and a favicon/social share image.
+- **Not set up:** analytics, and a favicon/social share image.
