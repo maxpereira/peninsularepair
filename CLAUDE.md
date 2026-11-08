@@ -30,7 +30,7 @@ The page is a **transit-style route map of the Peninsula**. Scrolling the page i
 - **Stops are towns.** Events hang off their town as timetable rows: a big monospace date, a type tag, the title, time and venue, a note, and a "Details from the organizer ↗" link.
 - **Empty stops stay on the map** in a muted style with "Host something here →". They invite submissions and keep the geography readable.
 - **Highlight buttons** (Fix / Make / Grow / Outdoors / Cleanup) dim the events that don't match. They don't hide anything, so the map keeps its shape.
-- **"End of the line. Unless you add a stop."** is the submission call to action. Next to it, a ticket-stub box credits RCP as the operator and holds the newsletter signup.
+- **"End of the line. Unless you add a stop."** is the submission call to action. Next to it, a ticket-stub box credits RCP as the operator. The newsletter signup that sat below it is commented out in the HTML for now.
 
 ### Visual rules
 
@@ -98,6 +98,6 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 ## Placeholders and open items
 
 - **Email address:** the page shows only `events [at] peninsula [dot] repair` (submission box and footer), and it isn't confirmed to exist. To keep it away from spam scrapers it is drawn as SVG paths (the `#addr` symbol near the footer, Overpass Mono glyphs) with no `mailto:` link and no plain text. Never add the address to the page as text or a link; if it changes, regenerate the paths.
-- **Newsletter form:** doesn't save anything yet. It only swaps in a thank-you message and needs to be connected to the owner's mailing list provider.
+- **Newsletter form:** hidden (wrapped in an HTML comment in the RCP box). It doesn't save anything; it only swaps in a thank-you message and needs to be connected to the owner's mailing list provider before it comes back.
 - **"Today" tag:** this is date-based only, so an event earlier today still shows "Today" after it has ended.
 - **Not set up:** analytics, a social share image, and a PNG apple-touch-icon (iOS doesn't use SVG icons for home-screen shortcuts).
