@@ -85,6 +85,22 @@ const EVENTS = [
     title: "Surfer's & Harbor Beach cleanup", venue: "Meet near the boat launch ramp, Pillar Point Harbor",
     note: "Pacific Beach Coalition. Work off the holiday leftovers.",
     url: "https://www.pacificbeachcoalition.org/next-beach-cleanup-surfers-beach/" },
+  { stop: "pv", kind: "outdoors", date: "2026-11-17", time: "12:30–5pm",
+    title: "Take a Hike Day dog hike", venue: "Windy Hill Preserve, Lower Windy Hill lot on Portola Rd",
+    note: "Midpen docent hike, about 7 miles at a vigorous pace. Well-behaved dogs welcome. Reservations required by Nov 16, 2pm.",
+    url: "https://www.openspace.org/events/guided-activities/national-take-hike-day-dog-hike" },
+  { stop: "daly", kind: "cleanup", date: "2026-11-28", time: "9–11am",
+    title: "Mussel Rock Beach cleanup", venue: "Mussel Rock parking area, lower end of Westline Dr",
+    note: "Pacific Beach Coalition, rain or shine. Park at the lot by the second entrance to the transfer station, not the other Westline Dr.",
+    url: "https://www.pacificbeachcoalition.org/next-mussel-rock-beach-cleanup/" },
+  { stop: "rwc", kind: "outdoors", date: "2026-12-02", time: "9am–noon",
+    title: "Signs of winter hike", venue: "Pulgas Ridge Preserve, parking area on Edmonds Rd",
+    note: "Midpen docent hike, about 4.25 miles with 600 ft of climbing. No dogs.",
+    url: "https://www.openspace.org/events/guided-activities/signs-winter" },
+  { stop: "daly", kind: "cleanup", date: "2026-12-26", time: "9–11am",
+    title: "Mussel Rock Beach cleanup", venue: "Mussel Rock parking area, lower end of Westline Dr",
+    note: "Pacific Beach Coalition, rain or shine.",
+    url: "https://www.pacificbeachcoalition.org/next-mussel-rock-beach-cleanup/" },
 ];
 
 /* ---------------- Regular service ----------------
