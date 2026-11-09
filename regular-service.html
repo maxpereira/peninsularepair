@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Regular Service · peninsula.repair</title>
+<meta name="description" content="The repair groups that run on a schedule on the SF Peninsula: repair cafés, fixit clinics, a community bike shop and library sewing hours.">
+<link rel="canonical" href="https://peninsula.repair/regular-service">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="peninsula.repair">
+<meta property="og:url" content="https://peninsula.repair/regular-service">
+<meta property="og:title" content="Regular Service: the repair groups that run on a schedule">
+<meta property="og:description" content="Repair cafés, fixit clinics, a community bike shop and library sewing hours on the SF Peninsula.">
+<meta property="og:image" content="https://peninsula.repair/og-image.png">
+<meta property="og:image:type" content="image/png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="peninsula.repair: Keep the Peninsula running. A blue and an orange transit line with stops, over the words Repair, Make, Grow, Outdoors, Cleanup, Daly City to Mountain View.">
+<meta property="og:locale" content="en_US">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Regular Service: the repair groups that run on a schedule">
+<meta name="twitter:description" content="Repair cafés, fixit clinics, a community bike shop and library sewing hours on the SF Peninsula.">
+<meta name="twitter:image" content="https://peninsula.repair/og-image.png">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Overpass:wght@400;600;800;900&family=Overpass+Mono:wght@400;600&display=swap" rel="stylesheet">
+<style>
+  /* Tokens, base and masthead are copied from index.html. Keep them in sync. */
+  :root {
+    --paper: #f3efe6;
+    --paper-2: #ebe5d8;
+    --ink: #18181a;
+    --muted: #6b6760;
+    --rule: #d6cfbf;
+    --bay: #d9481f;      /* Bayside line */
+    --coast: #1f6f86;    /* Coast & Hills line */
+    --amber: #ffb21a;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #161615;
+      --paper-2: #1e1e1c;
+      --ink: #efe9dc;
+      --muted: #9b968c;
+      --rule: #34322e;
+      --bay: #f0683f;
+      --coast: #4fa6bf;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #161615; --paper-2: #1e1e1c; --ink: #efe9dc; --muted: #9b968c;
+    --rule: #34322e; --bay: #f0683f; --coast: #4fa6bf;
+  }
+
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    color: var(--ink);
+    background-color: var(--paper);
+    background-image:
+      linear-gradient(var(--paper-2) 1px, transparent 1px),
+      linear-gradient(90deg, var(--paper-2) 1px, transparent 1px);
+    background-size: 32px 32px;
+    font: 17px/1.5 Overpass, system-ui, sans-serif;
+  }
+  a { color: inherit; text-underline-offset: 3px; }
+  .wrap { max-width: 1080px; margin: 0 auto; padding: 0 16px; }
+  .k { display: block; font: 600 .7rem "Overpass Mono", monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+
+  /* ---------- Masthead ---------- */
+  .mast { border-bottom: 3px solid var(--ink); background: var(--paper); }
+  .mast .wrap { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+  .word { font-weight: 900; font-size: 1.35rem; letter-spacing: -.02em; text-decoration: none; display: flex; align-items: center; gap: 10px; }
+  .word i { display: inline-flex; gap: 3px; align-items: flex-start; }
+  .word i b { width: 8px; height: 22px; border-radius: 4px; display: block; }
+  .word i b:first-child { background: var(--coast); height: 18px; }
+  .word i b:last-child { background: var(--bay); }
+  .mast nav { display: flex; gap: 20px; font-weight: 600; font-size: .95rem; }
+  .mast nav a { text-decoration: none; white-space: nowrap; }
+  @media (max-width: 420px) { .mast nav { gap: 14px; font-size: .88rem; } .word { font-size: 1.15rem; } }
+  .mast nav a:hover { text-decoration: underline; }
+  @media (max-width: 560px) { .mast nav a.hide-sm { display: none; } }
+  .mast .word { margin-right: auto; }
+  .switch { display: flex; border: 2px solid var(--ink); border-radius: 3px; order: 1; }
+  .mast nav { order: 2; }
+  .switch a { font: 600 .74rem "Overpass Mono", monospace; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; padding: 6px 10px 3px; white-space: nowrap; text-align: center; }
+  .switch a + a { border-left: 2px solid var(--ink); }
+  .switch a[aria-current="page"] { background: var(--ink); color: var(--paper); }
+  .switch a:not([aria-current]):hover { text-decoration: underline; }
+  @media (max-width: 720px) {
+    .mast .wrap { flex-wrap: wrap; height: auto; padding-top: 14px; padding-bottom: 12px; row-gap: 12px; }
+    .switch { order: 3; width: 100%; }
+    .switch a { flex: 1; padding: 8px 10px 5px; }
+  }
+
+  /* ---------- Intro ---------- */
+  .intro { padding: 52px 0 40px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 48px; align-items: end; }
+  @media (max-width: 880px) { .intro { grid-template-columns: 1fr; gap: 24px; padding-top: 36px; } }
+  .intro h1 { font-weight: 900; font-size: clamp(2.6rem, 7vw, 5rem); line-height: 1; letter-spacing: -.035em; margin: 0; }
+  .intro h1 span { color: var(--bay); }
+  .intro .sub { font-size: 1.3rem; font-weight: 800; margin: 14px 0 0; letter-spacing: -.01em; }
+  .intro p.more { margin: 0; color: var(--muted); max-width: 44ch; font-size: 1.05rem; }
+  .intro p.more a { color: var(--ink); font-weight: 600; }
+
+  /* ---------- Section heads (same as the map's route head) ---------- */
+  .sec { padding-bottom: 44px; }
+  .sec-head { border-top: 3px solid var(--ink); padding: 28px 0 22px; display: flex; flex-wrap: wrap; justify-content: space-between; gap: 12px 20px; align-items: end; }
+  .sec-head h2 { font-weight: 900; font-size: clamp(1.8rem, 4vw, 2.6rem); letter-spacing: -.02em; margin: 0; line-height: 1; }
+  .sec-head p { margin: 6px 0 0; color: var(--muted); max-width: 60ch; }
+  .lines { display: flex; gap: 18px; font-weight: 600; font-size: .9rem; }
+  .lines span { display: inline-flex; align-items: center; gap: 8px; }
+  .lines span::before { content: ""; width: 26px; height: 8px; border-radius: 4px; background: var(--c); }
+
+  /* ---------- Service cards ---------- */
+  .cards { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 440px), 1fr)); gap: 20px; align-items: start; }
+  .svc { position: relative; border: 2px solid var(--ink); border-radius: 3px; background: var(--paper); padding: 18px 20px 18px 34px; min-width: 0; }
+  /* Line-colored band down the left edge; split in two for groups that run on both lines */
+  .svc::before, .svc::after { content: ""; position: absolute; top: 0; bottom: 0; left: 0; width: 12px; background: var(--c); }
+  .svc::after { display: none; }
+  .svc.both::before { width: 6px; background: var(--coast); }
+  .svc.both::after { display: block; left: 6px; width: 6px; background: var(--bay); }
+  .svc-head { display: flex; gap: 14px; align-items: flex-start; }
+  .code {
+    flex: none; font: 600 .82rem "Overpass Mono", monospace; letter-spacing: .06em;
+    background: var(--c); color: var(--paper); border-radius: 3px; padding: 6px 8px 3px; margin-top: 3px; min-width: 52px; text-align: center;
+  }
+  .svc.both .code { background: var(--ink); }
+  .svc h3 { margin: 0; font-weight: 900; font-size: 1.4rem; line-height: 1.15; letter-spacing: -.015em; }
+  .line-tag { font: 600 .7rem "Overpass Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--c); }
+  .svc.both .line-tag { color: var(--ink); }
+  .what { margin: 12px 0 0; }
+  .svc dl { margin: 14px 0 0; display: grid; grid-template-columns: 104px 1fr; border-top: 2px solid var(--ink); }
+  .svc dt, .svc dd { padding: 9px 0 7px; border-bottom: 1px dashed var(--rule); margin: 0; }
+  .svc dt { font: 600 .68rem/1.9 "Overpass Mono", monospace; letter-spacing: .1em; text-transform: uppercase; color: var(--muted); padding-right: 10px; }
+  .svc dd { font-size: .95rem; min-width: 0; }
+  @media (max-width: 420px) {
+    .svc { padding: 16px 14px 16px 26px; }
+    .svc::before { width: 10px; }
+    .svc.both::before { width: 5px; } .svc.both::after { left: 5px; width: 5px; }
+    .svc dl { grid-template-columns: 1fr; }
+    .svc dt { border-bottom: 0; padding-bottom: 0; }
+    .svc dd { padding-top: 0; }
+  }
+  /* "Calling at": the towns a group visits, north to south */
+  .calls { display: flex; flex-wrap: wrap; gap: 4px 14px; }
+  .calls a, .calls span { display: inline-flex; align-items: center; gap: 6px; font-weight: 600; white-space: nowrap; }
+  .calls a { text-decoration: none; }
+  .calls a:hover { text-decoration: underline; }
+  .calls i { width: 11px; height: 11px; border-radius: 50%; border: 3px solid var(--c); background: var(--paper); flex: none; }
+  .calls .both i { width: 18px; border-radius: 6px; border-color: var(--ink); }
+
+  .nextdep { display: block; text-decoration: none; margin-top: 14px; }
+  .nextdep .row { display: flex; gap: 12px; align-items: baseline; flex-wrap: wrap; margin-top: 4px; }
+  .nextdep .d { font: 600 1.05rem "Overpass Mono", monospace; text-transform: uppercase; letter-spacing: -.01em; }
+  .nextdep b { font-weight: 800; }
+  .nextdep .m { color: var(--muted); font-size: .92rem; }
+  a.nextdep:hover b { text-decoration: underline; }
+  .nextdep .then { display: block; color: var(--muted); font-size: .88rem; margin-top: 2px; }
+  .svc .src { display: inline-block; margin-top: 12px; font-size: .88rem; font-weight: 600; }
+  .tag { font: 600 .66rem "Overpass Mono", monospace; letter-spacing: .06em; text-transform: uppercase; border: 1.5px solid var(--bay); background: var(--bay); color: var(--paper); padding: 2px 6px 0; border-radius: 3px; vertical-align: 2px; }
+
+  /* ---------- Sewing timetable ---------- */
+  .tt { width: 100%; border-collapse: collapse; border-top: 3px solid var(--ink); border-bottom: 3px solid var(--ink); background: var(--paper); }
+  .tt th, .tt td { text-align: left; vertical-align: top; padding: 12px 10px 10px; border-bottom: 1px dashed var(--rule); }
+  .tt thead th { font: 600 .7rem "Overpass Mono", monospace; letter-spacing: .12em; text-transform: uppercase; color: var(--muted); border-bottom: 2px solid var(--ink); padding-top: 10px; padding-bottom: 7px; white-space: nowrap; }
+  .tt thead th.now { color: var(--ink); }
+  .tt thead th.now::after { content: " · Today"; color: var(--bay); }
+  .tt td.now { background: color-mix(in srgb, var(--paper-2) 70%, transparent); }
+  .tt .lib { padding-left: 0; min-width: 230px; }
+  .tt .lib .town { display: flex; align-items: center; gap: 8px; font-weight: 900; font-size: 1.15rem; line-height: 1.2; }
+  .tt .lib .town::before { content: ""; flex: none; width: 10px; height: 10px; border-radius: 50%; border: 3px solid var(--c); }
+  .tt .lib .t { font-weight: 600; font-size: .92rem; }
+  .tt .lib .v, .tt .lib .n { color: var(--muted); font-size: .85rem; }
+  .tt .lib a { font-size: .85rem; font-weight: 600; }
+  .tt td.slot { font: 600 .88rem "Overpass Mono", monospace; letter-spacing: -.02em; white-space: nowrap; }
+  .tt td.slot small { display: block; font-size: .7rem; color: var(--muted); letter-spacing: .02em; text-transform: uppercase; }
+  .tt td.off { color: var(--rule); }
+  .tt tbody th { font-weight: 400; }
+  .sr { position: absolute; width: 1px; height: 1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; }
+  .by-day { display: none; }
+  @media (max-width: 860px) {
+    .tt { display: none; }
+    .by-day { display: block; border-top: 3px solid var(--ink); }
+  }
+  .day { border-bottom: 2px solid var(--ink); padding: 12px 0 6px; }
+  .day h3 { margin: 0 0 4px; font: 600 .74rem "Overpass Mono", monospace; letter-spacing: .14em; text-transform: uppercase; color: var(--muted); }
+  .day h3 b { color: var(--ink); font-weight: 600; }
+  .day ul { list-style: none; margin: 0; padding: 0; }
+  .day li { display: grid; grid-template-columns: 128px 1fr; gap: 12px; padding: 8px 0; border-top: 1px dashed var(--rule); }
+  .day li:first-child { border-top: 0; }
+  .day .tm { font: 600 .9rem "Overpass Mono", monospace; letter-spacing: -.02em; }
+  .day .pl b { display: flex; align-items: center; gap: 7px; font-weight: 800; }
+  .day .pl b::before { content: ""; flex: none; width: 9px; height: 9px; border-radius: 50%; border: 3px solid var(--c); }
+  .day .pl span { display: block; color: var(--muted); font-size: .88rem; }
+  .day .pl a { font-size: .85rem; font-weight: 600; }
+  @media (max-width: 420px) { .day li { grid-template-columns: 1fr; gap: 2px; } }
+  .fine { color: var(--muted); font-size: .88rem; margin: 12px 0 0; }
+
+  /* ---------- Add your line ---------- */
+  .eol { border-top: 3px solid var(--ink); padding: 44px 0 52px; }
+  .eol h2 { font-weight: 900; font-size: clamp(1.9rem, 4.6vw, 3rem); line-height: .95; letter-spacing: -.03em; margin: 0 0 16px; }
+  .eol p { margin: 0 0 18px; max-width: 56ch; }
+  .addr { display: block; height: 1.5rem; width: auto; aspect-ratio: 566.72 / 50.64; max-width: 100%; color: var(--ink); }
+  .addr.sm { display: inline-block; height: .95rem; color: var(--muted); }
+  .addr-box { display: inline-block; max-width: 100%; border: 2px solid var(--ink); border-radius: 3px; padding: 10px 14px 12px; }
+  .addr-box .k { margin-bottom: 6px; }
+  footer { border-top: 1px solid var(--rule); padding: 22px 0 40px; font-size: .85rem; color: var(--muted); }
+  footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+</style>
+</head>
+<body>
+
+<header class="mast">
+  <div class="wrap">
+    <a class="word" href="index.html"><i><b></b><b></b></i>peninsula.repair</a>
+    <nav>
+      <a class="hide-sm" href="index.html#about">About</a>
+      <a href="#add">Add a stop</a>
+    </nav>
+    <div class="switch" role="navigation" aria-label="Pages">
+      <a href="index.html">Map</a>
+      <a href="regular-service.html" aria-current="page">Regular service</a>
+    </div>
+  </div>
+</header>
+
+<main class="wrap">
+  <section class="intro">
+    <div>
+      <h1>Regular service<span>.</span></h1>
+      <p class="sub">The repair groups that run on a schedule.</p>
+    </div>
+    <p class="more">The <a href="index.html">map</a> has the dated departures. This page has the groups behind them, plus library sewing rooms you can drop into every week. Times change around holidays, so check the organizer's page before you go.</p>
+  </section>
+
+  <section class="sec" aria-labelledby="h-repair">
+    <div class="sec-head">
+      <div>
+        <h2 id="h-repair">Repair cafés &amp; clinics</h2>
+        <p>Bring something broken. Volunteers help you fix it yourself.</p>
+      </div>
+      <div class="lines">
+        <span style="--c: var(--coast)">Coast &amp; Hills</span>
+        <span style="--c: var(--bay)">Bayside</span>
+      </div>
+    </div>
+    <div class="cards" id="cards-repair"></div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-bikes">
+    <div class="sec-head">
+      <div>
+        <h2 id="h-bikes">Bikes</h2>
+        <p>Bike repair also runs at Repair Café of the Peninsula, above.</p>
+      </div>
+    </div>
+    <div class="cards" id="cards-bikes"></div>
+  </section>
+
+  <section class="sec" aria-labelledby="h-sew">
+    <div class="sec-head">
+      <div>
+        <h2 id="h-sew">Sewing &amp; mending hours</h2>
+        <p>Library sewing machines you can use for free. No class, and you don't have to live in that town. Bring your own project.</p>
+      </div>
+    </div>
+    <table class="tt" id="tt"></table>
+    <div class="by-day" id="by-day"></div>
+    <p class="fine">Libraries close on holidays and sometimes cancel a session. Check the library calendar before a long trip.</p>
+  </section>
+
+  <section class="eol" id="add">
+    <h2>Run something regular?<br>Add your line.</h2>
+    <p>Repair nights, mending circles, tool libraries, bike shops, sewing rooms: if it happens on a schedule anywhere on the Peninsula, send it in and we'll put it on this page and on the map.</p>
+    <div class="addr-box"><span class="k">Send it to</span><svg class="addr" viewBox="0 0 566.72 50.64" role="img" aria-label="events at peninsula dot repair"><use href="#addr"/></svg></div>
+  </section>
+</main>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true"><symbol id="addr" viewBox="0 0 566.72 50.64"><path fill="currentColor" d="M12.8 35.8Q9.7 35.8 7.6 34.4Q5.4 33.1 4.3 30.6Q3.1 28.2 3.1 25.1Q3.1 21.7 4.3 19.4Q5.5 17 7.7 15.7Q9.8 14.4 12.8 14.4Q15.2 14.4 17.2 15.4Q19.1 16.5 20.3 18.6Q21.5 20.8 21.5 24.1Q21.5 24.6 21.5 25.3Q21.5 26 21.4 26.7H6.3V23.1H17.4Q17.3 21.3 16.6 20.2Q15.9 19 14.9 18.6Q13.8 18.1 12.8 18.1Q9.8 18.1 8.5 19.9Q7.2 21.7 7.2 24.8Q7.2 28.1 8.7 30.1Q10.2 32.1 12.8 32.1Q14.1 32.1 15.3 31.6Q16.4 31.2 17.4 30.2L19.9 32.8Q18.6 34.1 16.8 35Q15 35.8 12.8 35.8ZM35 35.3 27.1 14.9H31.5L36.4 28.1Q36.6 28.6 36.7 29.1Q36.9 29.6 37 30.3Q37.2 29.6 37.3 29.1Q37.5 28.6 37.7 28.1L42.4 14.9H46.8L38.9 35.3ZM62 35.8Q59 35.8 56.9 34.4Q54.7 33.1 53.6 30.6Q52.4 28.2 52.4 25.1Q52.4 21.7 53.6 19.4Q54.8 17 57 15.7Q59.1 14.4 62 14.4Q64.4 14.4 66.4 15.4Q68.4 16.5 69.6 18.6Q70.8 20.8 70.8 24.1Q70.8 24.6 70.8 25.3Q70.7 26 70.6 26.7H55.6V23.1H66.7Q66.6 21.3 65.9 20.2Q65.2 19 64.1 18.6Q63.1 18.1 62 18.1Q59.1 18.1 57.8 19.9Q56.5 21.7 56.5 24.8Q56.5 28.1 58 30.1Q59.4 32.1 62.1 32.1Q63.4 32.1 64.5 31.6Q65.7 31.2 66.7 30.2L69.2 32.8Q67.9 34.1 66.1 35Q64.3 35.8 62 35.8ZM77.5 35.3V14.9H81.7V19.4L81.1 18.2Q81.3 17.3 82.2 16.4Q83 15.5 84.4 15Q85.7 14.4 87.4 14.4Q89.6 14.4 91.3 15.2Q93 16.1 94 18Q95 19.9 95 23.1V35.3H90.8V23.6Q90.8 20.6 89.5 19.5Q88.2 18.3 86.4 18.3Q85.1 18.3 84 18.8Q83 19.2 82.3 20.4Q81.7 21.5 81.7 23.5V35.3ZM112.8 35.8Q109.7 35.8 108.4 34.4Q107 32.9 107 30.4V18.5H102.6V14.9H107V8.4L111.2 6.4V14.9H118.1V18.5H111.2V29.4Q111.2 30.3 111.5 30.8Q111.7 31.4 112.4 31.8Q113 32.1 114.1 32.1Q115.3 32.1 116.1 31.8Q117 31.5 117.7 31.1L117.2 34.9Q116.4 35.3 115.3 35.6Q114.3 35.8 112.8 35.8ZM135.6 35.8Q133 35.8 130.9 34.8Q128.8 33.8 127.5 32.2L130.3 29.7Q131.1 30.6 132.6 31.4Q134 32.2 135.8 32.2Q137.3 32.2 138.3 31.6Q139.3 31.1 139.3 29.9Q139.3 29.1 138.6 28.5Q138 28 136.9 27.5Q135.8 27 134.3 26.4Q132.4 25.7 131 24.9Q129.5 24.1 128.7 22.9Q127.8 21.7 127.8 19.9Q127.8 18.2 128.8 17Q129.8 15.7 131.6 15.1Q133.3 14.4 135.4 14.4Q138 14.4 139.8 15.3Q141.7 16.2 142.9 17.6L140.1 19.9Q139.3 19.2 138.1 18.6Q136.9 18 135.2 18Q133.7 18 132.8 18.5Q131.8 19 131.8 19.9Q131.8 20.7 132.5 21.2Q133.1 21.7 134.1 22.2Q135.1 22.6 136.4 23.1Q138.1 23.7 139.7 24.5Q141.3 25.3 142.3 26.5Q143.3 27.8 143.3 29.9Q143.3 32.7 141.2 34.2Q139.1 35.8 135.6 35.8ZM160.3 35.8Q157 35.8 154.5 34.2Q152 32.5 150.5 29.4Q149.1 26.3 149.1 21.9Q149.1 18.5 150 15.8Q150.9 13 152.5 11Q154.1 9 156.2 7.9Q158.3 6.8 160.7 6.8Q163.9 6.8 166.2 8.4Q168.6 10 169.9 12.7Q171.2 15.4 171.2 18.8Q171.2 21.8 170.4 24Q169.6 26.3 168.3 27.6Q166.9 28.9 165.3 28.9Q164.3 28.9 163.6 28.3Q162.8 27.7 162.5 26.4Q161.9 27.8 161 28.5Q160.1 29.1 159 29.1Q157.7 29.1 156.7 28.3Q155.7 27.4 155.1 25.9Q154.5 24.3 154.5 22.3Q154.5 20.3 155.2 18.4Q155.9 16.5 157.2 15.2Q158.5 14 160.3 14Q161.5 14 162.2 14.7Q163 15.4 163.3 16.6L163.6 14.5H166.2L165 22.6Q164.9 23.3 164.9 23.9Q164.8 24.5 164.8 24.7Q164.8 25.3 165 25.6Q165.3 26 165.7 26Q166.5 26 167.2 25.1Q167.9 24.2 168.3 22.6Q168.7 21 168.7 18.8Q168.7 16 167.7 13.9Q166.7 11.8 165 10.6Q163.2 9.5 160.8 9.5Q158.1 9.5 156.1 11.1Q154.1 12.7 152.9 15.5Q151.8 18.3 151.8 21.9Q151.8 25.3 152.8 27.8Q153.9 30.3 155.8 31.7Q157.7 33.1 160.4 33.1Q161.5 33.1 162.6 32.9Q163.7 32.7 164.8 32.3L164.1 35.3Q163.2 35.6 162.2 35.7Q161.3 35.8 160.3 35.8ZM159.5 26.2Q160.5 26.2 161.2 25.4Q161.9 24.6 162.2 23.4Q162.6 22.1 162.6 20.7Q162.6 19 162 18Q161.4 17 160.4 17Q159.4 17 158.7 17.7Q158 18.4 157.7 19.7Q157.3 20.9 157.3 22.3Q157.3 24.1 157.9 25.1Q158.5 26.2 159.5 26.2ZM176.2 43.4V14.9H180.4V16.5Q181.2 15.6 182.4 15Q183.7 14.4 185.6 14.4Q188.3 14.4 190.3 15.7Q192.3 17 193.4 19.4Q194.5 21.8 194.5 25.1Q194.5 28.5 193.4 30.9Q192.2 33.3 190.2 34.5Q188.2 35.8 185.6 35.8Q183.6 35.8 182.4 35.2Q181.2 34.5 180.4 33.6V41.4ZM185 31.9Q187.5 31.9 188.9 30.1Q190.3 28.4 190.3 25.1Q190.3 22 188.9 20.2Q187.5 18.3 185 18.3Q183.4 18.3 182.2 18.9Q181.1 19.5 180.4 20.6V29.5Q181.1 30.5 182.2 31.2Q183.4 31.9 185 31.9ZM209.9 35.8Q206.9 35.8 204.7 34.4Q202.6 33.1 201.4 30.6Q200.3 28.2 200.3 25.1Q200.3 21.7 201.4 19.4Q202.6 17 204.8 15.7Q206.9 14.4 209.9 14.4Q212.3 14.4 214.3 15.4Q216.3 16.5 217.4 18.6Q218.6 20.8 218.6 24.1Q218.6 24.6 218.6 25.3Q218.6 26 218.5 26.7H203.5V23.1H214.5Q214.4 21.3 213.7 20.2Q213 19 212 18.6Q211 18.1 209.9 18.1Q207 18.1 205.6 19.9Q204.3 21.7 204.3 24.8Q204.3 28.1 205.8 30.1Q207.3 32.1 209.9 32.1Q211.2 32.1 212.4 31.6Q213.5 31.2 214.5 30.2L217 32.8Q215.7 34.1 213.9 35Q212.1 35.8 209.9 35.8ZM225.4 35.3V14.9H229.5V19.4L229 18.2Q229.1 17.3 230 16.4Q230.9 15.5 232.2 15Q233.6 14.4 235.3 14.4Q237.4 14.4 239.2 15.2Q240.9 16.1 241.8 18Q242.8 19.9 242.8 23.1V35.3H238.7V23.6Q238.7 20.6 237.4 19.5Q236.1 18.3 234.2 18.3Q232.9 18.3 231.9 18.8Q230.8 19.2 230.2 20.4Q229.5 21.5 229.5 23.5V35.3ZM256.9 35.1V14.9H261.1V35.1ZM251.3 35.3V31.7H266.7V35.3ZM251.3 18.5V14.9H259.5V18.5ZM259 11.7Q258 11.7 257.2 11Q256.5 10.2 256.5 9.2Q256.5 8.1 257.2 7.4Q258 6.6 259 6.6Q260.1 6.6 260.8 7.4Q261.5 8.1 261.5 9.2Q261.5 10.2 260.8 11Q260.1 11.7 259 11.7ZM274.7 35.3V14.9H278.8V19.4L278.2 18.2Q278.4 17.3 279.3 16.4Q280.1 15.5 281.5 15Q282.9 14.4 284.5 14.4Q286.7 14.4 288.4 15.2Q290.1 16.1 291.1 18Q292.1 19.9 292.1 23.1V35.3H288V23.6Q288 20.6 286.7 19.5Q285.4 18.3 283.5 18.3Q282.2 18.3 281.2 18.8Q280.1 19.2 279.4 20.4Q278.8 21.5 278.8 23.5V35.3ZM308 35.8Q305.5 35.8 303.4 34.8Q301.3 33.8 300 32.2L302.8 29.7Q303.6 30.6 305 31.4Q306.4 32.2 308.3 32.2Q309.8 32.2 310.8 31.6Q311.7 31.1 311.7 29.9Q311.7 29.1 311.1 28.5Q310.5 28 309.4 27.5Q308.3 27 306.8 26.4Q304.9 25.7 303.4 24.9Q302 24.1 301.1 22.9Q300.3 21.7 300.3 19.9Q300.3 18.2 301.3 17Q302.3 15.7 304 15.1Q305.8 14.4 307.9 14.4Q310.4 14.4 312.3 15.3Q314.2 16.2 315.4 17.6L312.6 19.9Q311.8 19.2 310.6 18.6Q309.4 18 307.6 18Q306.2 18 305.2 18.5Q304.3 19 304.3 19.9Q304.3 20.7 304.9 21.2Q305.6 21.7 306.6 22.2Q307.6 22.6 308.9 23.1Q310.6 23.7 312.2 24.5Q313.7 25.3 314.8 26.5Q315.8 27.8 315.8 29.9Q315.8 32.7 313.7 34.2Q311.6 35.8 308 35.8ZM331.6 35.8Q329.3 35.8 327.6 35Q325.9 34.1 324.9 32.2Q323.9 30.2 323.9 27V14.9H328.1V26.5Q328.1 29.5 329.4 30.6Q330.6 31.8 332.5 31.8Q333.7 31.8 334.8 31.4Q335.9 30.9 336.5 29.8Q337.2 28.6 337.2 26.6V14.9H341.3V35.3H337.2V33.3Q336.3 34.5 334.8 35.1Q333.4 35.8 331.6 35.8ZM355.2 35.3V6.8L359.3 6.4V35.3ZM349.3 35.3V31.7H365.2V35.3ZM350.4 10.1 348.5 6.4H359.3L359 10.1ZM380.4 35.8Q378.3 35.8 376.6 35Q374.9 34.3 373.9 32.8Q373 31.2 373 29Q373 26.6 374.1 25.1Q375.3 23.6 377.1 22.9Q379 22.2 381 22.2Q382.5 22.2 383.8 22.5Q385.1 22.8 386.3 23.4V22Q386.3 20.5 385.7 19.6Q385.2 18.8 384.3 18.4Q383.3 18 382.1 18Q380.4 18 378.7 18.6Q377 19.2 375.6 20.1L374.4 16.7Q375.8 15.8 377.9 15.1Q380.1 14.4 382.5 14.4Q383.8 14.4 385.1 14.7Q386.5 15 387.7 15.7Q388.8 16.5 389.6 18Q390.3 19.5 390.3 21.9V35.3H386.3V33.6Q385.3 34.5 383.9 35.2Q382.5 35.8 380.4 35.8ZM381.1 32.2Q382.9 32.2 384.2 31.4Q385.4 30.7 386.3 29.8V26.9Q385.4 26.4 384.2 26.1Q382.9 25.8 381.6 25.8Q379.8 25.8 378.4 26.5Q376.9 27.3 376.9 29Q376.9 30.4 378 31.3Q379.1 32.2 381.1 32.2ZM406.5 35.8Q405.3 35.8 404.4 35Q403.6 34.1 403.6 32.9Q403.6 31.7 404.4 30.8Q405.3 29.9 406.5 29.9Q407.8 29.9 408.7 30.8Q409.6 31.7 409.6 32.9Q409.6 34.1 408.7 35Q407.8 35.8 406.5 35.8ZM420.9 35.3V31.7H425.2V18.5H420.9V14.9H429.1V19.4L428.9 18.8Q429.3 17.5 430.5 16.5Q431.6 15.5 433.2 15Q434.7 14.4 436.5 14.4Q438 14.4 439.2 14.7Q440.4 15 441.1 15.4V22.8H437V16.7L438.7 18.5Q438.1 18.4 437.6 18.4Q437 18.3 436.6 18.3Q434.2 18.3 432.6 19Q431 19.7 430.2 21.1Q429.4 22.4 429.4 24.3V31.7H435.2V35.3ZM456.3 35.8Q453.3 35.8 451.1 34.4Q449 33.1 447.8 30.6Q446.7 28.2 446.7 25.1Q446.7 21.7 447.8 19.4Q449 17 451.2 15.7Q453.3 14.4 456.3 14.4Q458.7 14.4 460.7 15.4Q462.7 16.5 463.8 18.6Q465 20.8 465 24.1Q465 24.6 465 25.3Q465 26 464.9 26.7H449.9V23.1H460.9Q460.8 21.3 460.1 20.2Q459.4 19 458.4 18.6Q457.4 18.1 456.3 18.1Q453.4 18.1 452 19.9Q450.7 21.7 450.7 24.8Q450.7 28.1 452.2 30.1Q453.7 32.1 456.3 32.1Q457.6 32.1 458.8 31.6Q459.9 31.2 460.9 30.2L463.4 32.8Q462.1 34.1 460.3 35Q458.5 35.8 456.3 35.8ZM471.9 43.4V14.9H476.1V16.5Q476.9 15.6 478.1 15Q479.3 14.4 481.2 14.4Q484 14.4 486 15.7Q488 17 489.1 19.4Q490.2 21.8 490.2 25.1Q490.2 28.5 489 30.9Q487.9 33.3 485.9 34.5Q483.9 35.8 481.3 35.8Q479.3 35.8 478.1 35.2Q476.9 34.5 476.1 33.6V41.4ZM480.7 31.9Q483.2 31.9 484.6 30.1Q486 28.4 486 25.1Q486 22 484.6 20.2Q483.2 18.3 480.6 18.3Q479.1 18.3 477.9 18.9Q476.8 19.5 476.1 20.6V29.5Q476.8 30.5 477.9 31.2Q479.1 31.9 480.7 31.9ZM503.6 35.8Q501.5 35.8 499.8 35Q498.1 34.3 497.1 32.8Q496.2 31.2 496.2 29Q496.2 26.6 497.3 25.1Q498.5 23.6 500.3 22.9Q502.2 22.2 504.2 22.2Q505.7 22.2 507 22.5Q508.3 22.8 509.5 23.4V22Q509.5 20.5 508.9 19.6Q508.4 18.8 507.5 18.4Q506.5 18 505.3 18Q503.6 18 501.9 18.6Q500.2 19.2 498.8 20.1L497.6 16.7Q499 15.8 501.1 15.1Q503.3 14.4 505.7 14.4Q507 14.4 508.3 14.7Q509.7 15 510.9 15.7Q512 16.5 512.8 18Q513.5 19.5 513.5 21.9V35.3H509.5V33.6Q508.5 34.5 507.1 35.2Q505.7 35.8 503.6 35.8ZM504.3 32.2Q506.1 32.2 507.4 31.4Q508.6 30.7 509.5 29.8V26.9Q508.6 26.4 507.4 26.1Q506.1 25.8 504.8 25.8Q503 25.8 501.6 26.5Q500.1 27.3 500.1 29Q500.1 30.4 501.2 31.3Q502.3 32.2 504.3 32.2ZM528 35.1V14.9H532.1V35.1ZM522.3 35.3V31.7H537.8V35.3ZM522.3 18.5V14.9H530.6V18.5ZM530 11.7Q529 11.7 528.3 11Q527.5 10.2 527.5 9.2Q527.5 8.1 528.3 7.4Q529 6.6 530 6.6Q531.1 6.6 531.9 7.4Q532.6 8.1 532.6 9.2Q532.6 10.2 531.9 11Q531.1 11.7 530 11.7ZM544.1 35.3V31.7H548.4V18.5H544.1V14.9H552.3V19.4L552.1 18.8Q552.5 17.5 553.7 16.5Q554.8 15.5 556.4 15Q557.9 14.4 559.7 14.4Q561.2 14.4 562.4 14.7Q563.6 15 564.3 15.4V22.8H560.2V16.7L561.9 18.5Q561.3 18.4 560.8 18.4Q560.2 18.3 559.8 18.3Q557.4 18.3 555.8 19Q554.2 19.7 553.4 21.1Q552.6 22.4 552.6 24.3V31.7H558.4V35.3Z"/></symbol></svg>
+<footer>
+  <div class="wrap">
+    <span>peninsula.repair · Regular service last checked Nov 9, 2026</span>
+    <svg class="addr sm" viewBox="0 0 566.72 50.64" role="img" aria-label="events at peninsula dot repair"><use href="#addr"/></svg>
+  </div>
+</footer>
+
+<script src="data.js"></script>
+<script>
+/* ---------------- Helpers (same as index.html) ---------------- */
+const pad = n => String(n).padStart(2, "0");
+const now = new Date();
+const TODAY = `${now.getFullYear()}-${pad(now.getMonth() + 1)}-${pad(now.getDate())}`;
+const DOW = ["Sun","Mon","Tue","Wed","Thu","Fri","Sat"];
+const MON = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug","Sep","Oct","Nov","Dec"];
+const parse = s => { const [y, m, d] = s.split("-").map(Number); return new Date(y, m - 1, d); };
+const esc = s => s.replace(/[&<>"]/g, c => ({ "&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;" }[c]));
+const lineColor = l => l === "coast" ? "var(--coast)" : "var(--bay)";
+const LINE_NAME = { coast: "Coast & Hills", bay: "Bayside", both: "Both lines" };
+const stopById = id => STOPS.find(s => s.id === id);
+
+const upcoming = EVENTS
+  .filter(e => (e.end || e.date) >= TODAY)
+  .sort((a, b) => a.date.localeCompare(b.date));
+const isToday = e => e.date <= TODAY && (e.end || e.date) >= TODAY;
+function whenShort(e) {
+  if (isToday(e)) return "Today";
+  const d = parse(e.date), days = Math.round((d - parse(TODAY)) / 864e5);
+  if (days === 1) return "Tomorrow";
+  return `${DOW[d.getDay()]} ${pad(d.getDate())} ${MON[d.getMonth()]}`;
+}
+
+/* ---------------- Service cards ---------------- */
+function callHTML(c) {
+  const s = typeof c === "string" ? stopById(c) : c;
+  const cls = s.line === "both" ? ' class="both"' : "";
+  const style = `style="--c:${lineColor(s.line)}"`;
+  return s.id
+    ? `<a href="index.html#stop-${s.id}"${cls} ${style}><i></i>${esc(s.name)}</a>`
+    : `<span${cls} ${style}><i></i>${esc(s.name)}</span>`;
+}
+
+function nextHTML(o) {
+  const evs = upcoming.filter(e => e.org === o.id);
+  if (!evs.length) return `<div class="nextdep"><span class="k">Next departure</span>
+    <div class="row"><span class="m">Nothing on the map yet. Dates are on the organizer's site.</span></div></div>`;
+  const [e, then] = evs;
+  const town = stopById(e.stop).name;
+  return `<a class="nextdep" href="index.html#${eventId(e)}"><span class="k">Next departure</span>
+    <div class="row"><span class="d">${isToday(e) ? '<span class="tag">Today</span>' : whenShort(e)}</span><b>${esc(town)}</b><span class="m">${esc(e.time)}</span></div>
+    ${then ? `<span class="then">Then ${whenShort(then)} · ${esc(stopById(then.stop).name)}</span>` : ""}</a>`;
+}
+
+function cardHTML(o) {
+  const row = (k, v) => v ? `<dt>${k}</dt><dd>${v}</dd>` : "";
+  return `<article class="svc${o.line === "both" ? " both" : ""}" id="org-${o.id}" style="--c:${lineColor(o.line)}">
+    <div class="svc-head">
+      <span class="code">${o.code}</span>
+      <div><h3>${esc(o.name)}</h3><span class="line-tag">${LINE_NAME[o.line]}</span></div>
+    </div>
+    ${o.what ? `<p class="what">${esc(o.what)}</p>` : ""}
+    <dl>
+      ${row("Runs", esc(o.runs))}
+      ${row("Calling at", `<span class="calls">${o.calls.map(callHTML).join("")}</span>`)}
+      ${row("Where", o.where && esc(o.where))}
+      ${row("Takes", o.takes && esc(o.takes))}
+      ${row("Leave home", o.not && esc(o.not))}
+      ${row("Bring", o.bring && esc(o.bring))}
+    </dl>
+    ${nextHTML(o)}
+    <a class="src" href="${o.url}" target="_blank" rel="noopener">Organizer site ↗</a>
+  </article>`;
+}
+
+["repair", "bikes"].forEach(sec => {
+  document.getElementById("cards-" + sec).innerHTML = ORGS.filter(o => o.section === sec).map(cardHTML).join("");
+});
+
+/* ---------------- Sewing timetable ---------------- */
+const DAYS = ["mon", "tue", "wed", "thu", "fri", "sat", "sun"];
+const DAY_NAME = { mon: "Monday", tue: "Tuesday", wed: "Wednesday", thu: "Thursday", fri: "Friday", sat: "Saturday", sun: "Sunday" };
+const todayKey = DAYS[(now.getDay() + 6) % 7];
+
+function libHTML(l) {
+  return `<div class="town">${esc(l.town)}</div>
+    <div class="t">${esc(l.title)}</div>
+    <div class="v">${esc(l.venue)}</div>
+    ${l.note ? `<div class="n">${esc(l.note)}</div>` : ""}
+    <a href="${l.url}" target="_blank" rel="noopener">Library calendar ↗</a>`;
+}
+
+const tt = document.getElementById("tt");
+tt.innerHTML = `<caption class="sr">Library sewing hours by day of the week</caption>
+  <thead><tr><th class="lib" scope="col">Library</th>${DAYS.map(d => `<th scope="col"${d === todayKey ? ' class="now"' : ""}>${d}</th>`).join("")}</tr></thead>
+  <tbody>${SEWING.map(l => `<tr style="--c:${lineColor(l.line)}"><th class="lib" scope="row">${libHTML(l)}</th>${DAYS.map(d => {
+    const s = l.slots.find(x => x[0] === d);
+    const now = d === todayKey ? " now" : "";
+    return s ? `<td class="slot${now}">${esc(s[1])}${s[2] ? `<small>${esc(s[2])}</small>` : ""}</td>` : `<td class="off${now}" aria-label="closed">·</td>`;
+  }).join("")}</tr>`).join("")}</tbody>`;
+
+/* Start time in minutes, for sorting "10am–2pm", "2–4pm", "noon–2pm" */
+function startMin(t) {
+  const [from, to] = t.split("–");
+  if (from === "noon") return 720;
+  const m = from.match(/(\d+)(?::(\d+))?\s*(am|pm)?/);
+  const ap = m[3] || ((to || "").match(/am|pm/) || ["am"])[0];
+  return (+m[1] % 12 + (ap === "pm" ? 12 : 0)) * 60 + (+m[2] || 0);
+}
+
+/* Phones: the next seven days, starting today */
+const byDay = document.getElementById("by-day");
+const start = DAYS.indexOf(todayKey);
+byDay.innerHTML = [0, 1, 2, 3, 4, 5, 6].map(i => {
+  const d = DAYS[(start + i) % 7];
+  const rows = SEWING.flatMap(l => l.slots.filter(s => s[0] === d).map(s => ({ l, s })))
+    .sort((a, b) => startMin(a.s[1]) - startMin(b.s[1]));
+  if (!rows.length) return "";
+  const label = i === 0 ? `<b>Today</b> · ${DAY_NAME[d]}` : i === 1 ? `<b>Tomorrow</b> · ${DAY_NAME[d]}` : DAY_NAME[d];
+  return `<div class="day"><h3>${label}</h3><ul>${rows.map(({ l, s }) => `<li style="--c:${lineColor(l.line)}">
+      <span class="tm">${esc(s[1])}</span>
+      <div class="pl"><b>${esc(l.town)}</b><span>${esc(l.title)} · ${esc(l.venue)}${s[2] ? ` · ${esc(s[2])} only` : ""}</span>
+      ${l.note ? `<span>${esc(l.note)}</span>` : ""}<a href="${l.url}" target="_blank" rel="noopener">Library calendar ↗</a></div>
+    </li>`).join("")}</ul></div>`;
+}).join("");
+</script>
+</body>
+</html>

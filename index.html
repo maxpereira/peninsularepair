@@ -84,6 +84,19 @@
   @media (max-width: 420px) { .mast nav { gap: 14px; font-size: .88rem; } .word { font-size: 1.15rem; } }
   .mast nav a:hover { text-decoration: underline; }
   @media (max-width: 560px) { .mast nav a.hide-sm { display: none; } }
+  /* Map / Regular service switch: inline on wide screens, its own row on phones */
+  .mast .word { margin-right: auto; }
+  .switch { display: flex; border: 2px solid var(--ink); border-radius: 3px; order: 1; }
+  .mast nav { order: 2; }
+  .switch a { font: 600 .74rem "Overpass Mono", monospace; letter-spacing: .08em; text-transform: uppercase; text-decoration: none; padding: 6px 10px 3px; white-space: nowrap; text-align: center; }
+  .switch a + a { border-left: 2px solid var(--ink); }
+  .switch a[aria-current="page"] { background: var(--ink); color: var(--paper); }
+  .switch a:not([aria-current]):hover { text-decoration: underline; }
+  @media (max-width: 720px) {
+    .mast .wrap { flex-wrap: wrap; height: auto; padding-top: 14px; padding-bottom: 12px; row-gap: 12px; }
+    .switch { order: 3; width: 100%; }
+    .switch a { flex: 1; padding: 8px 10px 5px; }
+  }
 
   /* ---------- Hero ---------- */
   .hero { padding: 56px 0 48px; display: grid; grid-template-columns: 1.1fr 1fr; gap: 48px; align-items: center; }
@@ -121,6 +134,7 @@
   .strip-next b { display: block; font-weight: 800; font-size: 1.05rem; line-height: 1.25; }
   .strip-next span { color: var(--muted); font-size: .95rem; }
   .strip-next:hover b { text-decoration: underline; }
+  .strip-more { display: inline-block; margin-top: 10px; font-size: .88rem; font-weight: 600; }
   @media (max-width: 560px) {
     .strip { padding: 12px 12px 14px; }
     .strip-map { margin-right: 58px; height: 200px; --cy: 80px; --by: 118px; }
@@ -250,10 +264,13 @@
   <div class="wrap">
     <a class="word" href="#"><i><b></b><b></b></i>peninsula.repair</a>
     <nav>
-      <a href="#route">The line</a>
       <a class="hide-sm" href="#about">About</a>
       <a href="#add">Add a stop</a>
     </nav>
+    <div class="switch" role="navigation" aria-label="Pages">
+      <a href="#route" aria-current="page">Map</a>
+      <a href="regular-service.html">Regular service</a>
+    </div>
   </div>
 </header>
 
@@ -267,6 +284,7 @@
       <div class="strip-head"><span>The Fix-It Line</span><span>Southbound →</span></div>
       <div class="strip-map" id="strip"></div>
       <a class="strip-next" id="next" href="#route"></a>
+      <a class="strip-more" href="regular-service.html">Missed it? See regular service →</a>
     </nav>
   </section>
 
@@ -316,91 +334,8 @@
   </div>
 </footer>
 
+<script src="data.js"></script>
 <script>
-/* ---------------- Data ----------------
-   Stops run north → south. line: "coast", "bay" or "both" (interchange).
-   Edit EVENTS to add listings; past events drop off automatically. */
-const STOPS = [
-  { id: "daly",    name: "Daly City",      line: "both" },
-  { id: "pacifica",name: "Pacifica",       line: "coast" },
-  { id: "ssf",     name: "South San Francisco", line: "bay" },
-  { id: "burl",    name: "Burlingame",     line: "bay" },
-  { id: "hmb",     name: "Half Moon Bay",  line: "coast" },
-  { id: "sanmateo",name: "San Mateo",      line: "bay" },
-  { id: "sancarlos",name: "San Carlos",    line: "bay" },
-  { id: "rwc",     name: "Redwood City",   line: "bay" },
-  { id: "woodside",name: "Woodside",       line: "coast" },
-  { id: "pv",      name: "Portola Valley", line: "coast" },
-  { id: "menlo",   name: "Menlo Park",     line: "bay" },
-  { id: "pa",      name: "Palo Alto",      line: "bay" },
-  { id: "mv",      name: "Mountain View",  line: "bay" },
-];
-
-const KINDS = { fix: "Fix", make: "Make", grow: "Grow", outdoors: "Outdoors", cleanup: "Cleanup" };
-
-const EVENTS = [
-  { stop: "mv", kind: "grow", date: "2026-11-10", time: "6:30–8pm",
-    title: "Seed packets demystified", venue: "Mountain View Public Library, 585 Franklin St",
-    note: "UC Master Gardeners talk on reading seed packets.",
-    url: "https://ucanr.edu/site/uc-master-gardeners-santa-clara-county/event/seed-packets-demystified-mountain-view" },
-  { stop: "rwc", kind: "outdoors", date: "2026-11-20", time: "1–4pm",
-    title: "Signs of fall hike", venue: "Pulgas Ridge Preserve, parking area on Edmonds Rd",
-    note: "Midpen docent hike, about 4 miles with 400 ft of climbing. No dogs.",
-    url: "https://www.openspace.org/events/guided-activities/signs-fall-afternoon-edition" },
-  { stop: "hmb", kind: "outdoors", date: "2026-11-21", time: "9:30am–12:30pm",
-    title: "Counting banana slugs", venue: "Purisima Creek Redwoods Preserve, Purisima Creek Rd",
-    note: "Midpen family-friendly hike, about 2 miles. Reservations required by Nov 20, 2pm.",
-    url: "https://www.openspace.org/events/guided-activities/counting-banana-slugs-0" },
-  { stop: "pacifica", kind: "cleanup", date: "2026-12-05", time: "9–11am",
-    title: "San Pedro Creek cleanup", venue: "End of San Pedro Terrace Rd, by the trailhead",
-    note: "Pacific Beach Coalition, first Saturday of the month. Bring a bucket and reusable gloves.",
-    url: "https://www.pacificbeachcoalition.org/?p=12075" },
-  { stop: "pa", kind: "grow", date: "2026-11-07", time: "10am–noon",
-    title: "Worm composting workshop", venue: "Gamble Garden, 1431 Waverley St",
-    note: "Registration required. Palo Alto residents can pick up a free compost or worm bin.",
-    url: "https://www.eventbrite.com/e/palo-alto-worm-composting-workshop-tickets-1977397024731" },
-  { stop: "pa", kind: "fix", date: "2026-11-08", time: "11am–3pm",
-    title: "Repair Café Silicon Valley", venue: "Museum of American Heritage, 351 Homer Ave",
-    note: "Small appliances and electronics. Two items per household; check-in closes 2:30pm.",
-    url: "https://www.moah.org/moahevents/repair-cafe-of-silicon-valley-2" },
-  { stop: "pa", kind: "grow", date: "2026-11-15", time: "1:30–2:15pm",
-    title: "Choosing and planting fruit trees", venue: "Rinconada Library, 1213 Newell Rd",
-    note: "UC Master Gardeners talk.",
-    url: "https://ucanr.edu/site/uc-master-gardeners-santa-clara-county/event/planning-and-planting-little-fruit-orchard-palo" },
-  { stop: "woodside", kind: "make", date: "2026-11-15", time: "2pm",
-    title: "Build an owl box", venue: "Independence Hall, 2955 Woodside Rd",
-    note: "Hosted by the Woodside Environment & Open Space Committee.",
-    url: "https://www.paloaltoonline.com/real-estate/2026/11/05/fall-home-garden-events-make-a-holiday-centerpiece-learn-to-compost-and-more/" },
-  { stop: "daly", kind: "fix", date: "2026-11-18", time: "5:30–7:30pm",
-    title: "Repair Advice Workshop with Fixit Clinic", venue: "John Daly Library Makerspace, 134 Hillsdale Blvd",
-    note: "Carry-in items only. Sewing machines on hand for mending. Register ahead if you can.",
-    url: "https://www.smcsustainability.org/events/repair-advice-workshop-with-fixit-clinic-john-daly-library-daly-city-4/" },
-  { stop: "pv", kind: "outdoors", date: "2026-11-21", time: "noon–2pm",
-    title: "Fall & winter berries hike", venue: "Windy Hill Preserve, Lower Windy Hill lot on Portola Rd",
-    note: "Midpen guided walk. The lot fills fast.",
-    url: "https://www.openspace.org/events/guided-activities/fall-winter-berries" },
-  { stop: "sancarlos", kind: "fix", date: "2026-11-21", time: "3–6pm",
-    title: "Repair Café of the Peninsula", venue: "Callis & Elaine Community Center, 1336A Arroyo Ave",
-    note: "Free and drop-in. Fix it side by side with a volunteer: electronics, sewing, furniture, bikes and more. Check-in closes 5:30pm.",
-    url: "https://repaircafepeninsula.org/" },
-  { stop: "pa", kind: "outdoors", date: "2026-11-24", end: "2026-11-26", time: "Check tide tables",
-    title: "King tides at the Baylands", venue: "Palo Alto Baylands Boardwalk, 2775 Embarcadero Rd",
-    note: "See the year's highest tides, a preview of sea level rise.",
-    url: "https://www.environmentalvolunteers.org/" },
-  { stop: "hmb", kind: "cleanup", date: "2026-11-28", time: "9–11am",
-    title: "Surfer's & Harbor Beach cleanup", venue: "Meet near the boat launch ramp, Pillar Point Harbor",
-    note: "Pacific Beach Coalition. Beach and rocks at low tide, trail and bluff at high tide.",
-    url: "https://www.pacificbeachcoalition.org/next-beach-cleanup-surfers-beach/" },
-  { stop: "rwc", kind: "fix", date: "2026-12-05", time: "10:30am–12:30pm",
-    title: "Fixit Clinic Holiday Party", venue: "Redwood City Public Library, 1044 Middlefield Rd",
-    note: "San Mateo County Fixit Clinic.",
-    url: "https://www.smcsustainability.org/events/fixit-clinic-holiday-party-redwood-city-public-library/" },
-  { stop: "hmb", kind: "cleanup", date: "2026-12-26", time: "9–11am",
-    title: "Surfer's & Harbor Beach cleanup", venue: "Meet near the boat launch ramp, Pillar Point Harbor",
-    note: "Pacific Beach Coalition. Work off the holiday leftovers.",
-    url: "https://www.pacificbeachcoalition.org/next-beach-cleanup-surfers-beach/" },
-];
-
 /* ---------------- Helpers ---------------- */
 const pad = n => String(n).padStart(2, "0");
 const now = new Date();
@@ -415,7 +350,7 @@ const lineColor = l => l === "coast" ? "var(--coast)" : "var(--bay)";
 const upcoming = EVENTS
   .filter(e => (e.end || e.date) >= TODAY)
   .sort((a, b) => a.date.localeCompare(b.date));
-upcoming.forEach((e, i) => e.id = "ev" + i);
+upcoming.forEach(e => e.id = eventId(e));
 
 const isToday = e => e.date <= TODAY && (e.end || e.date) >= TODAY;
 function whenShort(e) {
@@ -525,6 +460,13 @@ if (nx) {
 } else {
   nextEl.innerHTML = `<span class="k">Next stop</span><b>Nothing scheduled yet.</b><span>Add a stop below.</span>`;
   nextEl.href = "#add";
+}
+
+/* ---------------- Arriving from a link (#ev-… or #stop-…) ---------------- */
+const arrive = document.getElementById(decodeURIComponent(location.hash.slice(1)));
+if (arrive && (arrive.classList.contains("dep") || arrive.classList.contains("stop"))) {
+  const deps = arrive.classList.contains("dep") ? [arrive] : [...arrive.querySelectorAll(".dep")];
+  requestAnimationFrame(() => jumpTo(arrive, deps.length ? deps : [arrive.querySelector(".body")]));
 }
 
 /* ---------------- Legend / highlight ---------------- */

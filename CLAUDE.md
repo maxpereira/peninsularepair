@@ -6,7 +6,9 @@ The site should feel like a local, hand-made community map. It should not look l
 
 ## Files
 
-- `index.html`: the whole site. Inline CSS and JS, Google Fonts only, no build step and no dependencies. Keep it as one static file unless the owner asks otherwise.
+- `index.html`: the map (home page). Inline CSS and JS, Google Fonts only, no build step and no dependencies.
+- `regular-service.html`: the Regular Service page (see below). Its tokens, base styles, masthead and switch are copied from index.html; keep them in sync.
+- `data.js`: all listings (`STOPS`, `KINDS`, `EVENTS`, `ORGS`, `SEWING`), loaded by both pages as a plain script. Don't add more pages or files unless the owner asks.
 - `CLAUDE.md`: this file.
 
 - `favicon.svg`: the two-bar mark, a short blue Coast & Hills bar beside a longer orange Bayside bar on a paper tile, with dark-mode colors built in. The header logo in index.html uses the same shape (blue bar shorter). Keep the two in sync.
@@ -43,7 +45,16 @@ The page is a **transit-style route map of the Peninsula**. Scrolling the page i
 - **Tone:** plain, warm, local. Keep transit wordplay light: "stop", "line", "departures", "end of the line".
 - **Layout:** must work at 375px wide (rails shrink there) and in dark mode. Respect `prefers-reduced-motion` (jumps don't smooth-scroll and the highlight flash is skipped).
 
-## Data model (in the `<script>` at the bottom of index.html)
+## Regular Service page
+
+`regular-service.html` (live at https://peninsula.repair/regular-service) lists the groups that run repair on a schedule, as opposed to the dated departures on the map. Subhead: "The repair groups that run on a schedule." Both pages have a Map / Regular service switch in the masthead (its own full-width row on phones), and the map's strip has a "Missed it? See regular service →" link.
+
+- **Service cards** (from `ORGS`), grouped into "Repair cafés & clinics" and "Bikes": a mono route-code badge, a line-colored band down the left edge (split blue/orange for groups that move along both lines), then Runs, Calling at (towns north to south, linking to the map stop), Where, Takes, Leave home, Bring.
+- **Next departure** on each card is the group's soonest upcoming event in `EVENTS` with a matching `org`, linking to that row on the map (`index.html#ev-…`, which jumps there and flashes it). Without one it says dates are on the organizer's site.
+- **Sewing & mending hours** (from `SEWING`): a timetable grid of libraries × Mon–Sun with today's column marked. Under 860px it becomes a list of the next seven days, starting today, sorted by start time.
+- The Stanford Repair Café was left off on purpose (no current dates found).
+
+## Data model (in `data.js`)
 
 ### `STOPS`: ordered north to south
 
@@ -65,7 +76,7 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 
 ```js
 { stop: "sancarlos", kind: "fix", date: "2026-11-21", end: "2026-11-23" /* optional, multi-day */,
-  time: "3–6pm", title: "…", venue: "Venue name, street address",
+  time: "3–6pm", title: "…", org: "rcp" /* optional, an ORGS id */, venue: "Venue name, street address",
   note: "One or two short sentences: what to bring, registration, limits.",
   url: "https://organizer-page" }
 ```
@@ -74,6 +85,14 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 - **Times:** short lowercase style with an en dash (`10:30am–12:30pm`, `noon–2pm`, `9–11am`).
 - **Venue:** the place name, then the street address. Leave out the city, because the stop already says it.
 - **`url`** must point to the organizer's own page for that event whenever possible. A news roundup is only a fallback.
+- **`org`**: set it on events run by a group in `ORGS` so the event shows as that group's next departure.
+- **Event ids** are `ev-<date>-<stop>-<kind>` (`eventId()` in data.js), so links from the Regular Service page stay stable.
+
+### `ORGS` and `SEWING`
+
+- `ORGS`: `{ id, code, section: "repair" | "bikes", line, name, runs, calls, where, what, takes, not, bring, url }`. `calls` lists towns north to south: a `STOPS` id, or `{ name, line }` for a town not on the map (Millbrae, Foster City).
+- `SEWING`: `{ town, line, stop?, title, venue, slots: [[day, time, note?]], note?, url }`, with `day` as `mon`…`sun`.
+- Check these on every refresh like events. Library times change; the county's list of sewing programs was out of date in Nov 2026 (Half Moon Bay, Millbrae and San Mateo differed from the library calendars), so trust each library's own calendar. Change the "Regular service last checked" date in that page's footer.
 
 ## Keeping events accurate (most important)
 
@@ -97,6 +116,8 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 - **Burlingame Public Library programs:** https://burlingame.libcal.com/ (repair cafés, mending, swaps)
 - **Bay Area repair directory:** https://www.cultureofrepair.org/community-repair-events/ (it's often stale, so use it to find organizers, not dates)
 - **RethinkWaste events:** https://rethinkwaste.org/events/ (blocks automated fetches; may need the browser)
+- **Silicon Valley Bicycle Exchange:** https://bikex.org/ (Palo Alto community bike shop; it is looking for a new home, so watch for an address change)
+- **Library sewing hours:** San Mateo County Libraries (https://smcl.bibliocommons.com/v2/events?q=sew, filter by location), San Mateo Public Library (https://sanmateopublic.libcal.com/, search "sewing"), Redwood City Library makerspace (https://www.redwoodcity.org/departments/library/makerspace, blocks automated fetches), South San Francisco (https://www.ssfca.gov/Departments/Library/Services/Adults-Seniors). The county's overview is at https://www.smcsustainability.org/climate-change/sustainability-academy/fixit-clinic/ but it lags behind the libraries.
 
 ## Placeholders and open items
 
