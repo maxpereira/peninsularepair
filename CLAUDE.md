@@ -117,6 +117,17 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 - **Bay Area repair directory:** https://www.cultureofrepair.org/community-repair-events/ (it's often stale, so use it to find organizers, not dates)
 - **RethinkWaste events:** https://rethinkwaste.org/events/ (blocks automated fetches; may need the browser)
 - **Silicon Valley Bicycle Exchange:** https://bikex.org/ (Palo Alto community bike shop; it is looking for a new home, so watch for an address change)
+- **Grassroots Ecology:** https://www.grassrootsecology.org/event-calendar (restoration workdays in Palo Alto and Mountain View; Los Altos Hills ones are off the map).
+- **Save The Bay:** https://savesfbay.org/ (Palo Alto Baylands nursery and plantings, Mountain View A2W Pond).
+- **Environmental Volunteers:** https://www.environmentalvolunteers.org/events/ (Palo Alto Baylands walks).
+- **Peninsula Open Space Trust:** its own site blocks bots; use its Eventbrite organizer page.
+- **San Mateo County Bird Alliance** (formerly Sequoia Audubon) field trips; registration on Eventbrite.
+- **UC Master Gardeners of San Mateo & SF:** https://ucanr.edu/upcoming-group-events/15112 (WebFetch gets 403; the browser works).
+- **Fresh Approach:** https://www.freshapproach.org/events/ (East Palo Alto and San Mateo compost hubs and garden workdays).
+- **Gamble Garden:** https://www.gamblegarden.org/events/
+- **Library event calendars for mending and sewing classes:** San Mateo County Libraries (https://smcl.bibliocommons.com/v2/events), Palo Alto (https://paloalto.bibliocommons.com/v2/events), Mountain View (https://mountainview.libcal.com/).
+- **Menlo Park citywide calendar:** https://www.menlopark.gov/Citywide-calendar
+- **California Coastal Commission king tides:** https://www.coastal.ca.gov/kingtides/ (dates and local walks).
 - **Library sewing hours:** San Mateo County Libraries (https://smcl.bibliocommons.com/v2/events?q=sew, filter by location), San Mateo Public Library (https://sanmateopublic.libcal.com/, search "sewing"), Redwood City Library makerspace (https://www.redwoodcity.org/departments/library/makerspace, blocks automated fetches), South San Francisco (https://www.ssfca.gov/Departments/Library/Services/Adults-Seniors). The county's overview is at https://www.smcsustainability.org/climate-change/sustainability-academy/fixit-clinic/ but it lags behind the libraries.
 
 ## Placeholders and open items
