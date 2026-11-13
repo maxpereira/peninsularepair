@@ -128,6 +128,10 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 - **Library event calendars for mending and sewing classes:** San Mateo County Libraries (https://smcl.bibliocommons.com/v2/events), Palo Alto (https://paloalto.bibliocommons.com/v2/events), Mountain View (https://mountainview.libcal.com/).
 - **Menlo Park citywide calendar:** https://www.menlopark.gov/Citywide-calendar
 - **California Coastal Commission king tides:** https://www.coastal.ca.gov/kingtides/ (dates and local walks).
+- **San Mateo County Parks:** https://www.smcgov.org/parks/parks-events, plus its Eventbrite organizer pages https://www.eventbrite.com/o/8207188966 (bird hikes, programs) and https://www.eventbrite.com/o/40582270183 (volunteer stewardship workdays).
+- **Canopy:** https://canopy.org/events/ (tree planting and care in Palo Alto, Menlo Park, East Palo Alto and Mountain View; some sites are only given after signup).
+- **Menlo Park Library** talks and Belle Haven "Library Makes" show on the city calendar; WebFetch sees only page 1, so page through it in the browser.
+- **Burlingame city calendar:** https://www.burlingame.org/calendar (library sewing lab and classes).
 - **Library sewing hours:** San Mateo County Libraries (https://smcl.bibliocommons.com/v2/events?q=sew, filter by location), San Mateo Public Library (https://sanmateopublic.libcal.com/, search "sewing"), Redwood City Library makerspace (https://www.redwoodcity.org/departments/library/makerspace, blocks automated fetches), South San Francisco (https://www.ssfca.gov/Departments/Library/Services/Adults-Seniors). The county's overview is at https://www.smcsustainability.org/climate-change/sustainability-academy/fixit-clinic/ but it lags behind the libraries.
 
 ## Placeholders and open items
