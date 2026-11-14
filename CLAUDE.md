@@ -116,7 +116,8 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 - **Burlingame Public Library programs:** https://burlingame.libcal.com/ (repair cafés, mending, swaps)
 - **Bay Area repair directory:** https://www.cultureofrepair.org/community-repair-events/ (it's often stale, so use it to find organizers, not dates)
 - **RethinkWaste events:** https://rethinkwaste.org/events/ (blocks automated fetches; may need the browser)
-- **Silicon Valley Bicycle Exchange:** https://bikex.org/ (Palo Alto community bike shop; it is looking for a new home, so watch for an address change)
+- **Silicon Valley Bicycle Exchange:** https://bikex.org/ (community bike shop moving from Palo Alto to 2450 E Charleston Rd, Mountain View, in Nov 2026; its Eventbrite page may still show the old address, so confirm the venue before listing repair nights)
+- **San Bruno Mountain Watch:** https://mountainwatch.org/upcomingevents (Brisbane and South San Francisco workdays, guided hikes and Colma Creek walks)
 - **Grassroots Ecology:** https://www.grassrootsecology.org/event-calendar (restoration workdays in Palo Alto and Mountain View; Los Altos Hills ones are off the map).
 - **Save The Bay:** https://savesfbay.org/ (Palo Alto Baylands nursery and plantings, Mountain View A2W Pond).
 - **Environmental Volunteers:** https://www.environmentalvolunteers.org/events/ (Palo Alto Baylands walks).
