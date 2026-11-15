@@ -133,6 +133,11 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 - **Canopy:** https://canopy.org/events/ (tree planting and care in Palo Alto, Menlo Park, East Palo Alto and Mountain View; some sites are only given after signup).
 - **Menlo Park Library** talks and Belle Haven "Library Makes" show on the city calendar; WebFetch sees only page 1, so page through it in the browser.
 - **Burlingame city calendar:** https://www.burlingame.org/calendar (library sewing lab and classes).
+- **CNPS Santa Clara Valley chapter:** https://www.cnps-scv.org/events/calendar (fountain thistle work parties in San Mateo; weekly Edgewood weed warriors, whose meeting spot is emailed only after signup, so they're left off; most other events are in San Jose).
+- **Friends of Edgewood:** Eventbrite organizer page https://www.eventbrite.com/o/friends-of-edgewood-natural-preserve-3011937000 (docent hikes in Redwood City).
+- **CuriOdyssey:** https://curiodyssey.org/events-calendar/ (free marsh hikes at Coyote Point, San Mateo).
+- **Stanford Educational Farm:** https://events.stanford.edu (search "Educational Farm"; Saturday volunteer mornings, listed on the Palo Alto stop). farm.stanford.edu blocks fetches.
+- **Coastside Land Trust:** https://www.coastsidelandtrust.org/events (Wavecrest walks in Half Moon Bay; check that dates are for the current season, as old pages linger).
 - **Library sewing hours:** San Mateo County Libraries (https://smcl.bibliocommons.com/v2/events?q=sew, filter by location), San Mateo Public Library (https://sanmateopublic.libcal.com/, search "sewing"), Redwood City Library makerspace (https://www.redwoodcity.org/departments/library/makerspace, blocks automated fetches), South San Francisco (https://www.ssfca.gov/Departments/Library/Services/Adults-Seniors). The county's overview is at https://www.smcsustainability.org/climate-change/sustainability-academy/fixit-clinic/ but it lags behind the libraries.
 
 ## Placeholders and open items
