@@ -138,6 +138,11 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 - **CuriOdyssey:** https://curiodyssey.org/events-calendar/ (free marsh hikes at Coyote Point, San Mateo).
 - **Stanford Educational Farm:** https://events.stanford.edu (search "Educational Farm"; Saturday volunteer mornings, listed on the Palo Alto stop). farm.stanford.edu blocks fetches.
 - **Coastside Land Trust:** https://www.coastsidelandtrust.org/events (Wavecrest walks in Half Moon Bay; check that dates are for the current season, as old pages linger).
+- **Sea Hugger** (Half Moon Bay beach cleanups): https://www.seahugger.org/events. Usually 2nd Saturday at Poplar Beach and 4th Saturday at Dunes Beach, 10am–noon.
+- **Pacifica Land Trust:** https://www.pacifica-land-trust.org/projects/pedro-point-headlands/pph-volunteer/ (Pedro Point Headlands workdays, 4th Sunday 10am–1pm, none in December; curl is blocked but WebFetch works).
+- **South San Francisco Sign Hill Stewards:** Eventbrite series https://www.eventbrite.com/e/sign-hill-stewards-habitat-restoration-tickets-1228033654719 (every other Saturday, 9am–noon; only list dates the page shows).
+- **Santa Clara Valley Bird Alliance:** https://scvbirdalliance.org/event-calendar (free bird walks; only list Palo Alto, Stanford and Mountain View trips).
+- **Daly City city calendar:** https://www.dalycity.org/calendar.aspx (library Fixit Clinic and programs; it can disagree with the SMC Sustainability times).
 - **Library sewing hours:** San Mateo County Libraries (https://smcl.bibliocommons.com/v2/events?q=sew, filter by location), San Mateo Public Library (https://sanmateopublic.libcal.com/, search "sewing"), Redwood City Library makerspace (https://www.redwoodcity.org/departments/library/makerspace, blocks automated fetches), South San Francisco (https://www.ssfca.gov/Departments/Library/Services/Adults-Seniors). The county's overview is at https://www.smcsustainability.org/climate-change/sustainability-academy/fixit-clinic/ but it lags behind the libraries.
 
 ## Placeholders and open items
