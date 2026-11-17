@@ -143,6 +143,7 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 - **South San Francisco Sign Hill Stewards:** Eventbrite series https://www.eventbrite.com/e/sign-hill-stewards-habitat-restoration-tickets-1228033654719 (every other Saturday, 9am–noon; only list dates the page shows).
 - **Santa Clara Valley Bird Alliance:** https://scvbirdalliance.org/event-calendar (free bird walks; only list Palo Alto, Stanford and Mountain View trips).
 - **Daly City city calendar:** https://www.dalycity.org/calendar.aspx (library Fixit Clinic and programs; it can disagree with the SMC Sustainability times).
+- **Surfrider San Mateo County:** https://smc.surfrider.org/events-calendar (the events page loads empty; use its linked public Google Calendar and the volunteer.surfrider.org signup pages for coastside beach cleanups).
 - **Library sewing hours:** San Mateo County Libraries (https://smcl.bibliocommons.com/v2/events?q=sew, filter by location), San Mateo Public Library (https://sanmateopublic.libcal.com/, search "sewing"), Redwood City Library makerspace (https://www.redwoodcity.org/departments/library/makerspace, blocks automated fetches), South San Francisco (https://www.ssfca.gov/Departments/Library/Services/Adults-Seniors). The county's overview is at https://www.smcsustainability.org/climate-change/sustainability-academy/fixit-clinic/ but it lags behind the libraries.
 
 ## Placeholders and open items
