@@ -29,6 +29,14 @@ const eventId = e => `ev-${e.date}-${e.stop}-${e.kind}`;
 const KINDS = { fix: "Fix", make: "Make", grow: "Grow", outdoors: "Outdoors", cleanup: "Cleanup" };
 
 const EVENTS = [
+  { stop: "brisbane", kind: "make", date: "2026-12-19", time: "10am–3pm",
+    title: "Winter plant sale & Mission Blue Makerspace", venue: "Mission Blue Nursery, 3435 Bayshore Blvd",
+    note: "San Bruno Mountain Watch. Free nature art tables, weather permitting: cyanotype prints, origami butterflies and painted terracotta pots to take home. Native plants for sale.",
+    url: "https://mountainwatch.org/upcomingevents/2026/winterplantsale" },
+  { stop: "hmb", kind: "make", date: "2026-11-27", time: "11am–2pm",
+    title: "Blue Friday upcycled gifts workshop", venue: "JettyWave Distillery, 155 Broadway, Princeton",
+    note: "Sea Hugger family workshop (ages 5+): terrariums from foraged materials and painted recycled cotton totes. $25 ticket includes materials.",
+    url: "https://www.seahugger.org/events/blue-friday-2026" },
   { stop: "burl", kind: "make", date: "2026-12-16", time: "3:45–5:45pm",
     title: "Sewing with Teacher Jessica", venue: "Burlingame Main Library, Tech Lab, 480 Primrose Rd",
     note: "Sewing machine class for ages 10–18; a parent signs a waiver. Full as of Nov 17; join the waitlist. The library says the Lab is closed until further notice, so confirm before going.",
@@ -177,9 +185,9 @@ const EVENTS = [
     title: "Foster City cleanup", venue: "Marlin Cove Shopping Center, Marlin Ave at Foster City Blvd",
     note: "Pacific Beach Coalition. Sign up through the form on the organizer's page.",
     url: "https://www.pacificbeachcoalition.org/next-cleanup-foster-city/" },
-  { stop: "hmb", kind: "outdoors", date: "2026-11-18", time: "9am–1:30pm",
+  { stop: "hmb", kind: "outdoors", date: "2026-11-23", time: "9am–2pm",
     title: "Return to the Green hike", venue: "Purisima Creek Redwoods Preserve, North Ridge parking area on Skyline Blvd",
-    note: "Midpen docent hike, about 5.25 miles, point to point with a short car caravan. Reservations close Nov 17, 2pm. Spots reopened; few left as of Nov 17.",
+    note: "Midpen docent hike, about 5.25 miles, point to point with a short car caravan. Rescheduled from Wed Nov 18; check the event page for reservations.",
     url: "https://www.openspace.org/events/guided-activities/return-green" },
   { stop: "pacifica", kind: "cleanup", date: "2026-11-21", time: "9–11am",
     title: "Linda Mar Beach cleanup", venue: "South end of the main parking lot, near Taco Bell",
