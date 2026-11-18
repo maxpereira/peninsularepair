@@ -115,7 +115,7 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 - **UC Master Gardeners (Santa Clara County):** https://ucanr.edu/site/uc-master-gardeners-santa-clara-county. Many sessions are in San Jose (out of scope), so check the venue.
 - **Burlingame Public Library programs:** https://burlingame.libcal.com/ (repair cafés, mending, swaps)
 - **Bay Area repair directory:** https://www.cultureofrepair.org/community-repair-events/ (it's often stale, so use it to find organizers, not dates)
-- **RethinkWaste events:** https://rethinkwaste.org/events/ (blocks automated fetches; may need the browser)
+- **RethinkWaste events:** https://rethinkwaste.org/events/ (Cloudflare blocks WebFetch, curl and the browser; its iCal feed https://rethinkwaste.org/?post_type=tribe_events&ical=1 loads)
 - **Silicon Valley Bicycle Exchange:** https://bikex.org/ (community bike shop moving from Palo Alto to 2450 E Charleston Rd, Mountain View, in Nov 2026; its Eventbrite page may still show the old address, so confirm the venue before listing repair nights)
 - **San Bruno Mountain Watch:** https://mountainwatch.org/upcomingevents (Brisbane and South San Francisco workdays, guided hikes and Colma Creek walks)
 - **Grassroots Ecology:** https://www.grassrootsecology.org/event-calendar (restoration workdays in Palo Alto and Mountain View; Los Altos Hills ones are off the map).
@@ -131,7 +131,8 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 - **California Coastal Commission king tides:** https://www.coastal.ca.gov/kingtides/ (dates and local walks).
 - **San Mateo County Parks:** https://www.smcgov.org/parks/parks-events, plus its Eventbrite organizer pages https://www.eventbrite.com/o/8207188966 (bird hikes, programs) and https://www.eventbrite.com/o/40582270183 (volunteer stewardship workdays).
 - **Canopy:** https://canopy.org/events/ (tree planting and care in Palo Alto, Menlo Park, East Palo Alto and Mountain View; some sites are only given after signup).
-- **Menlo Park Library** talks and Belle Haven "Library Makes" show on the city calendar; WebFetch sees only page 1, so page through it in the browser.
+- **Menlo Park Library** talks and Belle Haven "Library Makes" show on the city calendar; WebFetch sees only page 1, so page through it in the browser. Its Meetup group (https://www.meetup.com/menloparklibrary/events/) is easier to read.
+- **Redwood City Library special events:** https://redwoodcity.libcal.com/calendar/specialevents?cid=20088&t=m&d=YYYY-MM-01&cal=20088 (Playwright works; makerspace and Master Gardener programs, even though redwoodcity.org blocks bots).
 - **Burlingame city calendar:** https://www.burlingame.org/calendar (library sewing lab and classes).
 - **CNPS Santa Clara Valley chapter:** https://www.cnps-scv.org/events/calendar (fountain thistle work parties in San Mateo; weekly Edgewood weed warriors, whose meeting spot is emailed only after signup, so they're left off; most other events are in San Jose).
 - **Friends of Edgewood:** Eventbrite organizer page https://www.eventbrite.com/o/friends-of-edgewood-natural-preserve-3011937000 (docent hikes in Redwood City).
@@ -139,7 +140,7 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 - **Stanford Educational Farm:** https://events.stanford.edu (search "Educational Farm"; Saturday volunteer mornings, listed on the Palo Alto stop). farm.stanford.edu blocks fetches.
 - **Coastside Land Trust:** https://www.coastsidelandtrust.org/events (Wavecrest walks in Half Moon Bay; check that dates are for the current season, as old pages linger).
 - **Sea Hugger** (Half Moon Bay beach cleanups): https://www.seahugger.org/events. Usually 2nd Saturday at Poplar Beach and 4th Saturday at Dunes Beach, 10am–noon.
-- **Pacifica Land Trust:** https://www.pacifica-land-trust.org/projects/pedro-point-headlands/pph-volunteer/ (Pedro Point Headlands workdays, 4th Sunday 10am–1pm, none in December; curl is blocked but WebFetch works).
+- **Pacifica Land Trust:** https://www.pacifica-land-trust.org/projects/pedro-point-headlands/pph-volunteer/ (Pedro Point Headlands workdays, 4th Sunday 10am–1pm, none in December; curl and WebFetch now get 403, but Playwright works).
 - **South San Francisco Sign Hill Stewards:** Eventbrite series https://www.eventbrite.com/e/sign-hill-stewards-habitat-restoration-tickets-1228033654719 (every other Saturday, 9am–noon; only list dates the page shows).
 - **Santa Clara Valley Bird Alliance:** https://scvbirdalliance.org/event-calendar (free bird walks; only list Palo Alto, Stanford and Mountain View trips).
 - **Daly City city calendar:** https://www.dalycity.org/calendar.aspx (library Fixit Clinic and programs; it can disagree with the SMC Sustainability times).

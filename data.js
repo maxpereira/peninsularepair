@@ -29,6 +29,10 @@ const eventId = e => `ev-${e.date}-${e.stop}-${e.kind}`;
 const KINDS = { fix: "Fix", make: "Make", grow: "Grow", outdoors: "Outdoors", cleanup: "Cleanup" };
 
 const EVENTS = [
+  { stop: "pa", kind: "grow", date: "2027-01-09", time: "10am–noon",
+    title: "Second Saturday: water", venue: "Gamble Garden, 1431 Waverley St",
+    note: "Free and for all ages. Register for a 10, 10:30 or 11am entry; activities, a demonstration, storytime and garden tours.",
+    url: "https://www.gamblegarden.org/event/january-saturday/" },
   { stop: "mv", kind: "make", date: "2026-12-13", time: "1:30–3pm",
     title: "Felt penguin cutlery holder", venue: "Mountain View Public Library, 1st Floor Program Room, 585 Franklin St",
     note: "Make a felt penguin cutlery holder for the holiday table. Adults 18+; registration required, seats limited.",
