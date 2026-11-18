@@ -29,6 +29,10 @@ const eventId = e => `ev-${e.date}-${e.stop}-${e.kind}`;
 const KINDS = { fix: "Fix", make: "Make", grow: "Grow", outdoors: "Outdoors", cleanup: "Cleanup" };
 
 const EVENTS = [
+  { stop: "mv", kind: "make", date: "2026-12-13", time: "1:30–3pm",
+    title: "Felt penguin cutlery holder", venue: "Mountain View Public Library, 1st Floor Program Room, 585 Franklin St",
+    note: "Make a felt penguin cutlery holder for the holiday table. Adults 18+; registration required, seats limited.",
+    url: "https://mountainview.libcal.com/event/17736828" },
   { stop: "brisbane", kind: "grow", date: "2026-12-12", time: "9am–noon",
     title: "San Bruno Mountain native planting", venue: "San Bruno Mountain State and County Park, 555 Guadalupe Canyon Pkwy",
     note: "San Mateo County Parks volunteer workday planting natives near the lot and restrooms; tools and gloves provided. Free; register on Eventbrite. Heavy rain or wind cancels.",
@@ -1073,7 +1077,7 @@ const SEWING = [
   { town: "Burlingame", line: "bay", stop: "burl", title: "Drop-in Sewing Lab",
     venue: "Burlingame Main Library, Tech Lab, 480 Primrose Rd",
     slots: [["mon", "11am–1pm"], ["tue", "2–4pm"]],
-    url: "https://burlingame.libcal.com/event/16466178" },
+    url: "https://burlingame.libcal.com/event/16466179" },
   { town: "Half Moon Bay", line: "coast", stop: "hmb", title: "Open Sewing",
     venue: "Half Moon Bay Library, 620 Correas St",
     slots: [["tue", "10am–2pm"], ["thu", "10am–1pm"], ["sat", "10am–3pm"]],
