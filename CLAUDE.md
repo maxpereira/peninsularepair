@@ -145,6 +145,10 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 - **Santa Clara Valley Bird Alliance:** https://scvbirdalliance.org/event-calendar (free bird walks; only list Palo Alto, Stanford and Mountain View trips).
 - **Daly City city calendar:** https://www.dalycity.org/calendar.aspx (library Fixit Clinic and programs; it can disagree with the SMC Sustainability times).
 - **Surfrider San Mateo County:** https://smc.surfrider.org/events-calendar (the events page loads empty; use its linked public Google Calendar and the volunteer.surfrider.org signup pages for coastside beach cleanups).
+- **SFPUC Peninsula Watershed trail outings:** https://webapps.sfpuc.org/trails (free docent-led Fifield-Cahill Ridge hikes and rides from Cahill Gate, Hwy 92 at Skyline; listed on Half Moon Bay; skip ones with 0 spots).
+- **San Mateo Public Library (Hillsdale/Main):** https://sanmateopublic.libcal.com/ (its search doesn't filter; the day list `ajax/calendar/list?c=-1&date=YYYY-MM-DD&perpage=100` with header `X-Requested-With: XMLHttpRequest` works).
+- **BiblioCommons API** for SMCL and Palo Alto library events, faster than the web UI: `https://gateway.bibliocommons.com/v2/libraries/{smcl|paloalto}/events/search?q=…`.
+- **San Bruno Public Library** (city calendar https://www.sanbruno.ca.gov/Calendar.aspx, Social Stitch and makerspace): San Bruno isn't a stop yet; ask the owner before adding it.
 - **Library sewing hours:** San Mateo County Libraries (https://smcl.bibliocommons.com/v2/events?q=sew, filter by location), San Mateo Public Library (https://sanmateopublic.libcal.com/, search "sewing"), Redwood City Library makerspace (https://www.redwoodcity.org/departments/library/makerspace, blocks automated fetches), South San Francisco (https://www.ssfca.gov/Departments/Library/Services/Adults-Seniors). The county's overview is at https://www.smcsustainability.org/climate-change/sustainability-academy/fixit-clinic/ but it lags behind the libraries.
 
 ## Placeholders and open items
