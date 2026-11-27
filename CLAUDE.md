@@ -154,6 +154,12 @@ Current order: Daly City (both), Pacifica (coast), South San Francisco (bay), Bu
 - **Canopy calendar:** the events page is a JS calendar; its month grid loads from `canopy.org/wp-admin/admin-ajax.php` with `action=simcal_default_calendar_draw_grid`.
 - **Don Edwards SF Bay NWR:** Eventbrite organizer page https://www.eventbrite.com/o/6363846263 (only the Menlo Park / Ravenswood walks are in scope).
 - **San Bruno Public Library** (city calendar https://www.sanbruno.ca.gov/Calendar.aspx, Social Stitch and makerspace): San Bruno isn't a stop yet; ask the owner before adding it.
+- **Friends of San Pedro Valley Park** (Pacifica): https://friendsofsanpedrovalleypark.org/ (tribe API at `/wp-json/tribe/events/v1/events`; trail work 2nd Saturdays, habitat restoration 3rd Saturdays, forays and walks).
+- **Pacifica Gardens:** https://www.pacifica-gardens.org/ (community garden workdays on Saturdays 10am–2pm, March to early December).
+- **San Mateo Arboretum Society:** https://sanmateoarboretum.org/classes-events/ (seminars at the Kohl Pumphouse and Central Park rose garden volunteer days; registration on qgiv, whose dates have been more reliable than the site's).
+- **Flows to Bay** (SMC water pollution prevention program) calendar, for discovery only: `https://flowstobay.org/wp-json/tribe/events/v1/events?start_date=…&per_page=100`. Some dates are generated from patterns and have disagreed with organizers (Sign Hill, HEAL Project farm days), so confirm on the organizer's page.
+- **South San Francisco library calendar:** https://www.ssfca.gov/Departments/Library/Library-Calendar (curl gets 403; Playwright works; yarn meetups, junk journals, Mending Hour).
+- **Silicon Valley Bicycle Exchange calendar feed:** the public Google Calendar behind bikex.org/volunteer/calendar (`9sf80omrkjur88lurfqtdhsmgs@group.calendar.google.com`) lists repair nights months ahead.
 - **Library sewing hours:** San Mateo County Libraries (https://smcl.bibliocommons.com/v2/events?q=sew, filter by location), San Mateo Public Library (https://sanmateopublic.libcal.com/, search "sewing"), Redwood City Library makerspace (https://www.redwoodcity.org/departments/library/makerspace, blocks automated fetches), South San Francisco (https://www.ssfca.gov/Departments/Library/Services/Adults-Seniors). The county's overview is at https://www.smcsustainability.org/climate-change/sustainability-academy/fixit-clinic/ but it lags behind the libraries.
 
 ## Placeholders and open items
